@@ -1584,3 +1584,88 @@
 .category-image-card:hover .category-final-image{
   transform:translateZ(0) scale(1.006)!important;
 }
+
+/* =========================================================
+   LIOR V11 — acabamento para celular
+   Mantém a composição de desktop e ajusta somente telas móveis.
+   ========================================================= */
+@media (max-width:640px){
+  html,body{overflow-x:hidden}
+  .wrap{width:min(100% - 24px,1180px)}
+
+  .site-header .header-inner{min-height:60px}
+  .site-header nav{top:60px;padding:14px 12px;gap:3px}
+  .site-header nav a{padding:10px 8px;font-size:.72rem}
+  .menu-button{padding:8px;line-height:1}
+  .header-actions{gap:1px}
+  .header-icon{width:33px;height:36px}
+  .header-icon svg{width:23px;height:23px}
+
+  /* Exibe o banner completo: antes ele era ampliado e cortado no celular. */
+  .hero-final-media{
+    min-width:0!important;
+    width:100%!important;
+    left:auto!important;
+    transform:none!important;
+  }
+  .hero-final-media>img{width:100%!important;height:auto!important}
+  .hero-hotspot-collection{left:5.5%;top:77.7%;width:14.7%;height:10.2%}
+  .hero-hotspot-instagram{left:21.8%;top:77.7%;width:14.3%;height:10.2%}
+
+  .features{grid-template-columns:1fr 1fr;margin-top:0}
+  .features div{padding:14px 12px}
+  .features strong{font-size:.84rem;margin-bottom:5px}
+  .features span{font-size:.75rem;line-height:1.32}
+
+  .about-home,.section{padding:46px 0}
+  .section-head{gap:14px;margin-bottom:22px}
+  .section-head .ghost{width:100%;text-align:center}
+  .about-home h2,.section h2{font-size:clamp(2rem,8.7vw,2.7rem);line-height:1.05}
+
+  .toolbar{gap:8px;margin-bottom:16px}
+  .toolbar input,.toolbar select{min-width:0;padding:12px 10px}
+  .product-grid{gap:12px}
+  .product-info{padding:15px}
+  .product-info h3{font-size:1.18rem}
+  .favorite-card-button{right:8px;top:8px;width:38px;height:38px}
+  .favorite-card-button svg{width:24px;height:24px}
+
+  .footer-grid{gap:24px;padding:38px 0}
+  .utility-drawer{width:100%;padding:18px 14px}
+}
+
+@media (max-width:390px){
+  .header-icon{width:31px}
+  .header-icon svg{width:22px;height:22px}
+  .features div{padding:14px 10px}
+  .features span{font-size:.73rem}
+}
+
+/* Proporções específicas de iPhone: mais conteúdo visível sem afetar desktop. */
+@media (max-width:430px){
+  .moving-strip-top .moving-track span{padding:8px 14px!important;font-size:9px!important;letter-spacing:.07em}
+  .site-header .header-inner{min-height:58px}
+  .site-header nav{top:58px}
+  .menu-button{font-size:1.25rem}
+  .header-icon{width:32px;height:34px}
+  .header-icon svg{width:22px;height:22px}
+  .header-icon b{min-width:16px;height:16px;font-size:.6rem;right:-1px;top:-1px}
+
+  .features div{padding:13px 11px}
+  .features strong{font-size:.8rem}
+  .features span{font-size:.72rem;line-height:1.3}
+
+  .about-home,.section{padding:42px 0}
+  .about-home h2,.section h2{font-size:clamp(2rem,9.5vw,2.55rem);line-height:1.05;margin:8px 0 14px}
+  .about-home p,.big-copy{font-size:.92rem;line-height:1.65}
+  .eyebrow{font-size:.62rem;letter-spacing:.19em}
+
+  .section-head{margin-bottom:18px}
+  .ghost,.primary{padding:10px 12px;font-size:.72rem}
+  .product-grid{gap:10px}
+  .product-info{padding:12px}
+  .product-info h3{font-size:1.05rem}
+  .product-info .price{margin:10px 0}
+  .favorite-card-button{width:34px;height:34px}
+  .favorite-card-button svg{width:21px;height:21px}
+}
