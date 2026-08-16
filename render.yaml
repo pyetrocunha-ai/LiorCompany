@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: lior-company
+    domains:
+      - liorcompanymoda.com
+    runtime: python
+    buildCommand: ""
+    startCommand: python server_python/app.py
+    autoDeploy: false
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: OPEN_BROWSER
+        value: 0
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECURE_COOKIES
+        value: "true"
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: MP_PUBLIC_KEY
+        sync: false
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: MP_NOTIFICATION_URL
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="LIOR Company — moda masculina premium.">
+  <title>LIOR Company</title>
+  <link rel="stylesheet" href="css/style-v3.css?v=9">
+</head>
+<body>
+  <div class="moving-strip moving-strip-top" aria-label="Destaques da coleção"><div class="moving-track"><span>LIOR &amp; COMPANY &nbsp; • &nbsp; OVERSIZED PREMIUM &nbsp; • &nbsp; DRY FIT &nbsp; • &nbsp; ALGODÃO 30.1 &nbsp; • &nbsp; PERFORMANCE &nbsp; • &nbsp;</span><span>LIOR &amp; COMPANY &nbsp; • &nbsp; OVERSIZED PREMIUM &nbsp; • &nbsp; DRY FIT &nbsp; • &nbsp; ALGODÃO 30.1 &nbsp; • &nbsp; PERFORMANCE &nbsp; • &nbsp;</span></div></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
+      <nav id="navMenu">
+        <a href="#inicio" data-view="home">Início</a>
+        <a href="#colecao" data-view="categories">Coleção</a>
+        <a href="#marca" data-view="about">A marca</a>
+        <a href="#contato" data-view="contact">Contato</a>
+      </nav>
+      <div class="header-actions" aria-label="Ações da loja">
+        <button class="header-icon" id="searchButton" aria-label="Pesquisar produtos" title="Pesquisar produtos">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="12"></circle><path d="M29 29L41 41"></path></svg>
+        </button>
+        <button class="header-icon" id="favoritesButton" aria-label="Produtos favoritos" title="Produtos favoritos">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="14" r="7"></circle><path d="M18 14h11l12 12-15 15L14 29V17"></path><path d="M21 23h12M24 28h9M27 33h3"></path></svg>
+        </button>
+        <button class="header-icon" id="cartButton" aria-label="Abrir sacola" title="Sacola">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 16h26l3 25H7l3-25Z"></path><path d="M16 18V12a8 8 0 0 1 16 0v6"></path></svg>
+          <b id="cartCount">0</b>
+        </button>
+        <button class="header-icon" id="accountButton" aria-label="Conta do cliente" title="Minha conta">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="15" r="9"></circle><path d="M8 42c1-10 7-15 16-15s15 5 16 15H8Z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active">
+      <div class="hero editorial-hero home-feature-hero hero-final" id="inicio">
+        <div class="hero-final-media">
+          <img src="img/hero-lior-final.png" alt="LIOR Company — moda masculina premium" fetchpriority="high">
+          <button class="hero-hotspot hero-hotspot-collection" type="button" data-view="categories" aria-label="Ver coleção"></button>
+          <a class="hero-hotspot hero-hotspot-instagram" href="https://www.instagram.com/lior_company" target="_blank" rel="noopener" aria-label="Abrir Instagram da LIOR"></a>
+        </div>
+      </div>
+      <div class="features wrap">
+        <div><strong>Qualidade</strong><span>Materiais selecionados</span></div>
+        <div><strong>Identidade</strong><span>Design limpo e exclusivo</span></div>
+        <div><strong>Conforto</strong><span>Modelagens versáteis</span></div>
+        <div><strong>Pagamento</strong><span>Pix, crédito ou débito</span></div>
+      </div>
+      <section class="about-home" id="marca">
+        <div class="wrap narrow">
+          <p class="eyebrow">Sobre a LIOR</p>
+          <h2>O básico elevado a outro nível.</h2>
+          <p>A LIOR nasceu para criar roupas masculinas que unem presença, conforto e sofisticação. Cada coleção foi pensada para acompanhar a rotina sem perder personalidade.</p>
+        </div>
+      </section>
+    </section>
+
+    <section id="categoriesView" class="view section">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">Coleção</p><h2>Escolha uma categoria</h2></div><button class="ghost" data-view="home">Voltar ao início</button></div>
+        <div class="category-filter-bar" id="categoryFilterBar" aria-label="Filtrar categorias"></div><div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section id="productsView" class="view section">
+      <div class="wrap">
+        <div class="section-head"><div><button class="collection-back" type="button" data-view="categories">← Voltar</button><p class="eyebrow" id="productKicker">Coleção</p><h2 id="productTitle">Produtos</h2></div><button class="ghost" data-view="categories">Todas as categorias</button></div>
+        <div class="toolbar"><input id="searchInput" type="search" placeholder="Buscar produto"><select id="categoryFilter" aria-label="Filtrar por categoria"><option value="all">Todas as categorias</option></select></div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section id="aboutView" class="view section">
+      <div class="wrap narrow"><p class="eyebrow">A marca</p><h2>LIOR Company</h2><p class="big-copy">Moda masculina construída em torno de linhas limpas, materiais confortáveis e uma estética contemporânea. A proposta é transformar peças essenciais em itens marcantes e fáceis de combinar.</p><button class="primary" data-view="categories">Conhecer a coleção</button></div>
+    </section>
+
+    <section id="contactView" class="view section">
+      <div class="wrap narrow"><p class="eyebrow">Contato</p><h2>Fale com a LIOR</h2><p class="big-copy">Tire dúvidas pelo Instagram e finalize suas compras com Pix, cartão de crédito ou débito.</p><a class="primary link-button" href="https://www.instagram.com/lior_company" target="_blank" rel="noopener">Instagram @lior_company</a></div>
+    </section>
+  </main>
+
+  <footer id="contato"><div class="wrap footer-grid"><div><div class="brand footer-brand">LIOR <span>COMPANY</span></div><p>Vista sua melhor versão.</p></div><div><strong>Categorias</strong><a href="#colecao" data-view="categories">Ver coleção</a></div><div><strong>Atendimento</strong><a href="https://www.instagram.com/lior_company" target="_blank" rel="noopener">Instagram</a></div></div></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h3>Sua sacola</h3><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div class="drawer-foot">
+    <input type="hidden" id="cartPaymentMethod" value="Pix">
+    <label class="cart-field-label" for="cartCoupon">Cupom de desconto</label><div class="coupon-row"><input id="cartCoupon" placeholder="Digite o cupom"><button id="applyCoupon" type="button">Aplicar</button></div><small id="couponMessage"></small>
+    <div class="cart-summary-line"><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div><div class="cart-summary-line"><span>Desconto</span><strong id="cartDiscount">R$ 0,00</strong></div><div class="cart-summary-line"><span>Frete</span><strong id="cartShipping">A calcular</strong></div><div class="total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div><button class="primary full" id="checkoutButton">Ir para pagamento</button><small>O estoque mostrado é provisório.</small></div></aside>
+
+  <div class="payment-modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+    <button class="modal-close" id="closePayment" aria-label="Fechar pagamento">×</button>
+    <div class="payment-shell">
+      <div class="checkout-heading">
+        <div><p class="eyebrow">Checkout seguro LIOR</p><h2 id="paymentTitle">Finalizar pagamento</h2></div>
+        <span class="secure-checkout-badge">Pagamento protegido</span>
+      </div>
+      <div class="payment-total"><span>Total do pedido</span><strong id="paymentTotal">R$ 0,00</strong></div>
+
+      <div class="payment-loading" id="paymentLoading">
+        <span class="checkout-spinner" aria-hidden="true"></span>
+        <div><strong>Preparando o pagamento</strong><small>Carregando Pix, crédito e débito com segurança.</small></div>
+      </div>
+
+      <div class="payment-config-message" id="paymentConfigMessage" hidden>
+        <strong>Integração de pagamento ainda não configurada</strong>
+        <p>Preencha as credenciais do Mercado Pago no arquivo <code>server_python/.env</code> e abra o site pelo servidor Python.</p>
+      </div>
+
+      <div id="paymentBrick_container" class="payment-brick-container"></div>
+
+      <section class="payment-result-panel" id="paymentResultPanel" hidden>
+        <div class="payment-result-icon" id="paymentResultIcon">✓</div>
+        <p class="eyebrow" id="paymentResultKicker">Pagamento</p>
+        <h3 id="paymentResultTitle">Pagamento recebido</h3>
+        <p id="paymentResultText">Seu pedido foi confirmado.</p>
+        <button class="primary full" id="paymentResultButton" type="button">Continuar</button>
+      </section>
+
+      <section class="pix-status-panel" id="pixStatusPanel" hidden>
+        <div class="pix-status-copy">
+          <span class="payment-status-pill is-pending" id="pixStatusPill"><i></i>Aguardando pagamento</span>
+          <p class="eyebrow">Pix LIOR</p>
+          <h3>Escaneie o QR Code</h3>
+          <p>Abra o aplicativo do seu banco, escolha Pix e escaneie o código. A confirmação acontece automaticamente.</p>
+          <div class="pix-waiting-line"><span class="checkout-spinner small" aria-hidden="true"></span><span id="pixStatusText">Verificando o pagamento...</span></div>
+          <small>O QR Code é exclusivo deste pedido e não mostra a chave Pix do recebedor.</small>
+        </div>
+        <div class="pix-qr-frame"><img id="dynamicPixQr" alt="QR Code Pix deste pedido"></div>
+      </section>
+    </div>
+  </div>
+
+  <aside class="utility-drawer" id="searchDrawer"><div class="drawer-head"><h3>Pesquisar produtos</h3><button data-close-utility>×</button></div><div class="utility-body"><input id="globalSearchInput" class="utility-search" type="search" placeholder="Digite o nome do produto"><div id="globalSearchResults" class="utility-results"></div></div></aside>
+
+  <aside class="utility-drawer" id="favoritesDrawer"><div class="drawer-head"><h3>Produtos favoritos</h3><button data-close-utility>×</button></div><div id="favoritesItems" class="favorite-items"></div></aside>
+
+  <div class="account-modal customer-account-modal" id="accountModal" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close-utility>×</button>
+    <div class="customer-account-shell">
+      <aside class="customer-account-sidebar">
+        <div class="customer-profile-head"><span class="customer-avatar" id="customerAvatar">L</span><div><small>Olá,</small><strong id="customerGreeting">Cliente LIOR</strong></div></div>
+        <nav class="customer-account-nav" id="customerAccountNav">
+          <button class="active" data-account-tab="orders"><span>▣</span> Meus pedidos</button>
+          <button data-account-tab="favorites"><span>◇</span> Favoritos</button>
+          <button data-account-tab="profile"><span>◯</span> Meu perfil</button>
+          <button data-account-tab="addresses"><span>⌂</span> Endereços de entrega</button>
+          <button data-account-tab="payments"><span>▭</span> Formas de pagamento</button>
+          <button data-account-tab="security"><span>◆</span> Senha e segurança</button>
+          <button class="customer-logout" id="customerLogout"><span>↪</span> Sair da conta</button>
+        </nav>
+      </aside>
+      <main class="customer-account-main">
+        <section id="accountAuthPanel" class="account-auth-panel">
+          <div class="auth-brand"><img src="img/logo-lior-textura.png" alt="LIOR"><p class="eyebrow">Área do cliente</p><h2 id="authTitle">Entrar na sua conta</h2><p id="authSubtitle">Acesse sua conta para acompanhar seus pedidos, endereços, pagamentos e muito mais.</p></div>
+          <div class="social-login-row single"><button type="button" id="loginGoogle" class="social-login google-login"><b>G</b> Continuar com Google</button></div><small id="googleLoginMessage" class="auth-message"></small>
+          <div class="auth-divider"><span>ou entre com e-mail</span></div>
+          <form id="loginForm" class="auth-form">
+            <label>E-mail</label><input id="loginEmail" type="email" autocomplete="email" placeholder="seuemail@gmail.com" required>
+            <label>Senha</label><div class="password-field"><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required><button type="button" data-toggle-password="loginPassword">Mostrar</button></div>
+            <button class="primary full" type="submit">Entrar</button>
+            <button class="auth-link" type="button" id="openForgot">Esqueci minha senha</button>
+            <p class="auth-switch">Ainda não tem conta? <button type="button" id="openRegister">Cadastre-se primeiro</button></p>
+            <small id="loginMessage" class="auth-message"></small>
+          </form>
+          <form id="registerForm" class="auth-form is-hidden">
+            <div class="auth-register-grid">
+              <div class="wide"><label>Nome completo</label><input id="registerName" autocomplete="name" placeholder="Seu nome completo" required></div>
+              <div><label>Apelido</label><input id="registerNickname" placeholder="Como quer ser chamado" required></div>
+              <div><label>CPF</label><input id="registerCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required></div>
+              <div><label>Gmail</label><input id="registerEmail" type="email" autocomplete="email" placeholder="seuemail@gmail.com" required></div>
+              <div><label>WhatsApp</label><input id="registerPhone" type="tel" autocomplete="tel" placeholder="(47) 99999-9999"></div>
+              <div class="wide"><label>Data de nascimento</label><input id="registerBirthDate" type="date" autocomplete="bday" required></div>
+              <div><label>Senha</label><div class="password-field"><input id="registerPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo de 8 caracteres" required><button type="button" data-toggle-password="registerPassword">Mostrar</button></div></div>
+              <div><label>Confirmar senha</label><input id="registerPasswordConfirm" type="password" autocomplete="new-password" placeholder="Digite novamente" required></div>
+            </div>
+            <button class="primary full" type="submit">Criar minha conta</button>
+            <p class="auth-switch">Já possui cadastro? <button type="button" id="openLogin">Entrar</button></p>
+            <small id="registerMessage" class="auth-message"></small>
+          </form>
+          <form id="forgotForm" class="auth-form is-hidden">
+            <div class="forgot-icon">✉</div><h3>Recuperar senha</h3><p>Informe o Gmail cadastrado. Em uma loja publicada, o link seguro será enviado para esse endereço.</p>
+            <label>Gmail cadastrado</label><input id="forgotEmail" type="email" placeholder="seunome@gmail.com" required>
+            <button class="primary full" type="submit">Enviar recuperação</button>
+            <button class="auth-link" type="button" id="forgotBackLogin">Voltar para entrar</button>
+            <small id="forgotMessage" class="auth-message"></small>
+          </form>
+        </section>
+        <div id="accountPrivateArea" class="account-private-area is-hidden">
+          <section id="accountOrdersPanel" class="account-panel active">
+            <div class="account-orders-head"><div><p class="eyebrow">Área do cliente</p><h2>Meus pedidos</h2><p>Acompanhe o pagamento, a preparação e a entrega do seu pedido.</p></div><button class="owner-access" id="accountOwnerAccess">Área do lojista</button></div>
+            <div id="accountOrders" class="account-orders"></div>
+          </section>
+          <section id="accountFavoritesPanel" class="account-panel"><p class="eyebrow">Sua seleção</p><h2>Favoritos</h2><div id="accountFavorites" class="account-favorites"></div></section>
+          <section id="accountProfilePanel" class="account-panel">
+            <p class="eyebrow">Seus dados</p><h2>Meu perfil</h2><p>O sistema usará o seu apelido para cumprimentar você dentro da conta.</p>
+            <div class="account-form-grid account-profile-grid">
+              <div class="wide"><label>Nome completo</label><input id="accountName" type="text" autocomplete="name" placeholder="Seu nome completo"></div>
+              <div><label>Apelido</label><input id="accountNickname" type="text" placeholder="Como quer ser chamado"></div>
+              <div class="cpf-profile-field"><label>Documento CPF</label><div class="cpf-input-row"><input id="accountCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00"><button type="button" id="verifyAccountCpf">Verificar</button></div><small id="cpfValidationMessage" class="cpf-validation-message"></small></div>
+              <div><label>Tipo de contato</label><select id="accountContactType" aria-label="Tipo de contato"><option value="email">Gmail</option><option value="phone">Telefone</option></select></div>
+              <div><label>Contato</label><input id="accountContact" type="text" placeholder="Escolha o tipo de contato acima"></div>
+              <div><label>Data de nascimento</label><input id="accountBirthDate" type="date" autocomplete="bday"></div>
+              <div><label>Estado civil</label><select id="accountMaritalStatus" aria-label="Estado civil"><option value="">Selecione</option><option value="Solteiro(a)">Solteiro(a)</option><option value="Casado(a)">Casado(a)</option><option value="União estável">União estável</option><option value="Divorciado(a)">Divorciado(a)</option><option value="Viúvo(a)">Viúvo(a)</option><option value="Prefiro não informar">Prefiro não informar</option></select></div>
+              <fieldset class="wide gender-fieldset"><legend>Sexo / gênero</legend><label><input type="radio" name="accountGender" value="Homem"> Homem</label><label><input type="radio" name="accountGender" value="Mulher"> Mulher</label><label><input type="radio" name="accountGender" value="Prefiro não dizer"> Prefiro não dizer</label></fieldset>
+            </div>
+            <button class="primary compact-save" id="saveAccount">Salvar perfil</button><small id="accountMessage"></small>
+          </section>
+          <section id="accountAddressesPanel" class="account-panel">
+            <p class="eyebrow">Entrega</p><h2>Endereço de entrega</h2><p>Informe os dados completos para evitar atrasos no envio.</p>
+            <div class="account-form-grid account-address-grid">
+              <div><label>CEP</label><input id="accountCep" inputmode="numeric" placeholder="00000-000"></div>
+              <div><label>Destinatário</label><input id="accountRecipient" autocomplete="name" placeholder="Nome de quem receberá"></div>
+              <div class="wide"><label>Endereço</label><input id="accountStreet" placeholder="Rua, avenida ou travessa"></div>
+              <div><label>Número</label><input id="accountNumber" inputmode="numeric" placeholder="Ex.: 123"></div>
+              <div><label>Complemento</label><input id="accountComplement" placeholder="Apto, bloco, casa..."></div>
+              <div class="wide"><label>Ponto de referência</label><input id="accountReference" placeholder="Ex.: próximo ao mercado"></div>
+              <div><label>Bairro</label><input id="accountDistrict" placeholder="Seu bairro"></div>
+              <div><label>Cidade / UF</label><input id="accountCity" placeholder="Itajaí - SC"></div>
+            </div>
+            <button class="primary compact-save" id="saveAddress">Salvar endereço</button><small id="addressMessage"></small>
+          </section>
+          <section id="accountPaymentsPanel" class="account-panel"><p class="eyebrow">Pagamento</p><h2>Formas de pagamento</h2><p>Escolha a forma preferida para suas compras na LIOR.</p><div class="payment-method-grid"><label class="payment-choice"><input type="radio" name="preferredPayment" value="Pix"><span><b>Pix</b><small>Pagamento rápido por QR Code ou código copia e cola.</small></span></label><label class="payment-choice"><input type="radio" name="preferredPayment" value="Cartão de crédito"><span><b>Cartão de crédito</b><small>Pagamento sujeito à confirmação da plataforma.</small></span></label><label class="payment-choice"><input type="radio" name="preferredPayment" value="Cartão de débito"><span><b>Cartão de débito</b><small>Disponível conforme o checkout da loja.</small></span></label></div><button class="primary" id="savePaymentMethod">Salvar preferência</button><small id="paymentMessage"></small></section>
+          <section id="accountSecurityPanel" class="account-panel"><p class="eyebrow">Segurança</p><h2>Senha e segurança</h2><p>Altere sua senha de acesso. Contas Google usam a senha da própria conta Google.</p><form id="changePasswordForm" class="security-form"><label>Senha atual</label><div class="password-field"><input id="currentPassword" type="password" autocomplete="current-password" required><button type="button" data-toggle-password="currentPassword">Mostrar</button></div><label>Nova senha</label><div class="password-field"><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required><button type="button" data-toggle-password="newPassword">Mostrar</button></div><label>Confirmar nova senha</label><input id="confirmNewPassword" type="password" minlength="8" autocomplete="new-password" required><button class="primary" type="submit">Alterar senha</button><small id="passwordChangeMessage" class="auth-message"></small></form></section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="modal-close" id="closeModal" aria-label="Fechar">×</button>
+    <div class="product-modal-scroll" id="productModalScroll">
+      <div class="modal-grid">
+        <div class="gallery">
+          <div class="gallery-viewport" id="galleryViewport" tabindex="0" aria-label="Galeria do produto. Arraste para os lados para ver frente e verso.">
+            <img id="modalImage" class="gallery-main-image" alt="" title="Clique para ampliar">
+            <button type="button" class="gallery-zoom-button" id="galleryZoomButton" aria-label="Ampliar foto">⌕ <span>Zoom</span></button>
+            <button type="button" class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Foto anterior">‹</button>
+            <button type="button" class="gallery-arrow gallery-next" id="galleryNext" aria-label="Próxima foto">›</button>
+            <span class="gallery-counter" id="galleryCounter">1 / 2</span>
+            <span class="swipe-hint">Arraste para o lado</span>
+          </div>
+          <div id="thumbs" class="thumbs"></div>
+          <button class="reviews-jump gallery-reviews-jump" id="reviewsJump">Ver avaliações</button>
+        </div>
+        <div class="modal-info">
+          <p class="eyebrow" id="modalCategory"></p><h2 id="modalName"></h2><div class="modal-price" id="modalPrice"></div><p id="modalDescription"></p>
+          <label>Tamanho</label><div class="sizes" id="sizeOptions"></div>
+          <label>Quantidade</label><div class="qty"><button id="qtyMinus">−</button><input id="qtyInput" value="1" readonly><button id="qtyPlus">+</button></div>
+          <div class="product-actions"><button class="primary add-cart-compact" id="addToCart"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 16h26l3 25H7l3-25Z"></path><path d="M16 18V12a8 8 0 0 1 16 0v6"></path></svg><span>Adicionar à sacola</span></button><button class="favorite-icon-button" id="modalFavoriteButton" aria-label="Salvar como favorito" title="Salvar como favorito"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="14" r="7"></circle><path d="M18 14h11l12 12-15 15L14 29V17"></path><path d="M21 23h12M24 28h9M27 33h3"></path></svg></button></div>
+          <div class="shipping-calculator"><label for="shippingCep">Calcular frete</label><div class="shipping-row"><input id="shippingCep" inputmode="numeric" maxlength="9" placeholder="Digite seu CEP"><button id="calculateShipping" type="button">Calcular</button></div><small id="shippingResult">Consulte uma estimativa de entrega para seu endereço.</small></div>
+        </div>
+      </div>
+      <section class="reviews-section is-collapsed" id="reviewsSection" aria-labelledby="reviewsTitle" aria-hidden="true">
+        <div class="reviews-head">
+          <div><h3 id="reviewsTitle">Avaliações do produto</h3><p class="eyebrow">Opiniões de clientes</p></div>
+          <div class="reviews-summary"><strong id="reviewsAverage">5,0</strong><span id="reviewsAverageStars" class="stars-display">★★★★★</span><small id="reviewsCount">0 avaliações</small></div>
+        </div>
+        <div class="reviews-toolbar"><label for="reviewsSort">Ordenar por</label><select id="reviewsSort"><option value="best">Melhores avaliações</option><option value="recent">Mais recentes</option></select></div>
+        <p class="verified-review-note">As avaliações são feitas dentro da conta do cliente, somente após a entrega do pedido.</p>
+        <div class="reviews-list" id="reviewsList"></div>
+      </section>
+    </div>
+  </div>
+
+
+  <div class="account-modal review-account-modal" id="accountReviewModal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="closeAccountReview">×</button>
+    <div class="account-content">
+      <p class="eyebrow">Compra verificada</p><h2 id="accountReviewProduct">Avaliar produto</h2>
+      <p>Sua avaliação será publicada na página do produto.</p>
+      <div class="star-picker" id="accountStarPicker" aria-label="Escolha de 1 a 5 estrelas"><button data-account-star="1">★</button><button data-account-star="2">★</button><button data-account-star="3">★</button><button data-account-star="4">★</button><button data-account-star="5">★</button></div>
+      <textarea id="accountReviewText" maxlength="500" placeholder="Conte como foi sua experiência com o produto"></textarea>
+      <button class="primary full" id="accountReviewSubmit">Publicar avaliação</button><small id="accountReviewMessage"></small>
+    </div>
+  </div>
+
+
+  <div class="zoom-viewer" id="zoomViewer" role="dialog" aria-modal="true" aria-label="Visualização ampliada do produto">
+    <div class="zoom-toolbar">
+      <span id="zoomTitle">Foto do produto</span>
+      <div class="zoom-actions">
+        <button type="button" id="zoomOut" aria-label="Diminuir zoom">−</button>
+        <strong id="zoomLevel">100%</strong>
+        <button type="button" id="zoomIn" aria-label="Aumentar zoom">+</button>
+        <button type="button" id="zoomReset">Ajustar</button>
+        <button type="button" id="zoomClose" aria-label="Fechar zoom">×</button>
+      </div>
+    </div>
+    <div class="zoom-stage" id="zoomStage"><img id="zoomImage" alt=""></div>
+    <small class="zoom-help">Use os botões + e − ou a roda do mouse. No celular, use dois dedos.</small>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="js/app.js?v=9"></script>
+  <script src="js/payment.js?v=9"></script>
+</body>
+</html>

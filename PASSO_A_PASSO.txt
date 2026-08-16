@@ -1,0 +1,11 @@
+LIOR — COMO ABRIR NO WINDOWS
+
+1. Extraia todo o arquivo ZIP para uma pasta normal.
+2. Dê dois cliques em ABRIR_LOJA.bat.
+3. Aguarde. O navegador abrirá sozinho em http://127.0.0.1:3000.
+4. Mantenha a janela preta do servidor aberta enquanto usar a loja.
+5. Agora o botão de conta, cadastro e login funcionarão.
+
+Não abra o index.html diretamente. Conta, pagamento e segurança dependem do servidor Python.
+
+Para fechar a loja, feche a janela preta do servidor.
