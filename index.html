@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="LIOR Company — moda masculina premium.">
   <title>LIOR Company</title>
-  <link rel="stylesheet" href="css/base.css?v=17">
-  <link rel="stylesheet" href="css/layout.css?v=17">
-  <link rel="stylesheet" href="css/components.css?v=17">
-  <link rel="stylesheet" href="css/account.css?v=17">
-  <link rel="stylesheet" href="css/checkout.css?v=17">
+  <link rel="stylesheet" href="css/base.css?v=18">
+  <link rel="stylesheet" href="css/layout.css?v=18">
+  <link rel="stylesheet" href="css/components.css?v=18">
+  <link rel="stylesheet" href="css/account.css?v=18">
+  <link rel="stylesheet" href="css/checkout.css?v=18">
 </head>
 <body>
   <div class="moving-strip moving-strip-top" aria-label="Destaques da coleção"><div class="moving-track"><span>LIOR &amp; COMPANY &nbsp; • &nbsp; OVERSIZED PREMIUM &nbsp; • &nbsp; DRY FIT &nbsp; • &nbsp; ALGODÃO 30.1 &nbsp; • &nbsp; PERFORMANCE &nbsp; • &nbsp;</span><span>LIOR &amp; COMPANY &nbsp; • &nbsp; OVERSIZED PREMIUM &nbsp; • &nbsp; DRY FIT &nbsp; • &nbsp; ALGODÃO 30.1 &nbsp; • &nbsp; PERFORMANCE &nbsp; • &nbsp;</span></div></div>
@@ -44,7 +44,7 @@
     <section id="homeView" class="view active">
       <div class="hero editorial-hero home-feature-hero hero-final" id="inicio">
         <div class="hero-final-media">
-          <img src="img/hero-lior-final.png" alt="LIOR Company — moda masculina premium" fetchpriority="high">
+          <img src="img/hero-lior-final.png" alt="LIOR Company — moda masculina premium">
           <button class="hero-hotspot hero-hotspot-collection" type="button" data-view="categories" aria-label="Ver coleção"></button>
           <a class="hero-hotspot hero-hotspot-instagram" href="https://www.instagram.com/lior_company" target="_blank" rel="noopener" aria-label="Abrir Instagram da LIOR"></a>
         </div>
@@ -178,7 +178,7 @@
               <div><label>CPF</label><input id="registerCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required></div>
               <div><label>Gmail</label><input id="registerEmail" type="email" autocomplete="email" placeholder="seuemail@gmail.com" required></div>
               <div><label>WhatsApp</label><input id="registerPhone" type="tel" autocomplete="tel" placeholder="(47) 99999-9999"></div>
-              <div class="wide"><label>Data de nascimento</label><input id="registerBirthDate" type="date" autocomplete="bday" required></div>
+              <div class="wide"><label for="registerBirthDate">Data de nascimento</label><input id="registerBirthDate" type="date" autocomplete="bday" required></div>
               <div><label>Senha</label><div class="password-field"><input id="registerPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo de 8 caracteres" required><button type="button" data-toggle-password="registerPassword">Mostrar</button></div></div>
               <div><label>Confirmar senha</label><input id="registerPasswordConfirm" type="password" autocomplete="new-password" placeholder="Digite novamente" required></div>
             </div>
@@ -208,7 +208,7 @@
               <div class="cpf-profile-field"><label>Documento CPF</label><div class="cpf-input-row"><input id="accountCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00"><button type="button" id="verifyAccountCpf">Verificar</button></div><small id="cpfValidationMessage" class="cpf-validation-message"></small></div>
               <div><label>Tipo de contato</label><select id="accountContactType" aria-label="Tipo de contato"><option value="email">Gmail</option><option value="phone">Telefone</option></select></div>
               <div><label>Contato</label><input id="accountContact" type="text" placeholder="Escolha o tipo de contato acima"></div>
-              <div><label>Data de nascimento</label><input id="accountBirthDate" type="date" autocomplete="bday"></div>
+              <div><label for="accountBirthDate">Data de nascimento</label><input id="accountBirthDate" type="date" autocomplete="bday"></div>
               <div><label>Estado civil</label><select id="accountMaritalStatus" aria-label="Estado civil"><option value="">Selecione</option><option value="Solteiro(a)">Solteiro(a)</option><option value="Casado(a)">Casado(a)</option><option value="União estável">União estável</option><option value="Divorciado(a)">Divorciado(a)</option><option value="Viúvo(a)">Viúvo(a)</option><option value="Prefiro não informar">Prefiro não informar</option></select></div>
               <fieldset class="wide gender-fieldset"><legend>Sexo / gênero</legend><label><input type="radio" name="accountGender" value="Homem"> Homem</label><label><input type="radio" name="accountGender" value="Mulher"> Mulher</label><label><input type="radio" name="accountGender" value="Prefiro não dizer"> Prefiro não dizer</label></fieldset>
             </div>
@@ -229,7 +229,7 @@
             <button class="primary compact-save" id="saveAddress">Salvar endereço</button><small id="addressMessage"></small>
           </section>
           <section id="accountPaymentsPanel" class="account-panel"><p class="eyebrow">Pagamento</p><h2>Formas de pagamento</h2><p>Escolha a forma preferida para suas compras na LIOR.</p><div class="payment-method-grid"><label class="payment-choice"><input type="radio" name="preferredPayment" value="Pix"><span><b>Pix</b><small>Pagamento rápido por QR Code ou código copia e cola.</small></span></label><label class="payment-choice"><input type="radio" name="preferredPayment" value="Cartão de crédito"><span><b>Cartão de crédito</b><small>Pagamento sujeito à confirmação da plataforma.</small></span></label><label class="payment-choice"><input type="radio" name="preferredPayment" value="Cartão de débito"><span><b>Cartão de débito</b><small>Disponível conforme o checkout da loja.</small></span></label></div><button class="primary" id="savePaymentMethod">Salvar preferência</button><small id="paymentMessage"></small></section>
-          <section id="accountSecurityPanel" class="account-panel"><p class="eyebrow">Segurança</p><h2>Senha e segurança</h2><p>Altere sua senha de acesso. Contas Google usam a senha da própria conta Google.</p><form id="changePasswordForm" class="security-form"><label>Senha atual</label><div class="password-field"><input id="currentPassword" type="password" autocomplete="current-password" required><button type="button" data-toggle-password="currentPassword">Mostrar</button></div><label>Nova senha</label><div class="password-field"><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required><button type="button" data-toggle-password="newPassword">Mostrar</button></div><label>Confirmar nova senha</label><input id="confirmNewPassword" type="password" minlength="8" autocomplete="new-password" required><button class="primary" type="submit">Alterar senha</button><small id="passwordChangeMessage" class="auth-message"></small></form></section>
+          <section id="accountSecurityPanel" class="account-panel"><p class="eyebrow">Segurança</p><h2>Senha e segurança</h2><p>Altere sua senha de acesso. Contas Google usam a senha da própria conta Google.</p><form id="changePasswordForm" class="security-form"><label for="currentPassword">Senha atual</label><div class="password-field"><input id="currentPassword" type="password" autocomplete="current-password" required><button type="button" data-toggle-password="currentPassword">Mostrar</button></div><label for="newPassword">Nova senha</label><div class="password-field"><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required><button type="button" data-toggle-password="newPassword">Mostrar</button></div><label for="confirmNewPassword">Confirmar nova senha</label><input id="confirmNewPassword" type="password" minlength="8" autocomplete="new-password" required><button class="primary" type="submit">Alterar senha</button><small id="passwordChangeMessage" class="auth-message"></small></form></section>
         </div>
       </main>
     </div>
@@ -254,7 +254,7 @@
         <div class="modal-info">
           <p class="eyebrow" id="modalCategory"></p><h2 id="modalName"></h2><div class="modal-price" id="modalPrice"></div><p id="modalDescription"></p>
           <label>Tamanho</label><div class="sizes" id="sizeOptions"></div>
-          <label>Quantidade</label><div class="qty"><button id="qtyMinus">−</button><input id="qtyInput" value="1" readonly><button id="qtyPlus">+</button></div>
+          <label for="qtyInput">Quantidade</label><div class="qty"><button id="qtyMinus" type="button">−</button><input id="qtyInput" value="1" readonly><button id="qtyPlus" type="button">+</button></div>
           <div class="product-actions"><button class="primary add-cart-compact" id="addToCart"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 16h26l3 25H7l3-25Z"></path><path d="M16 18V12a8 8 0 0 1 16 0v6"></path></svg><span>Adicionar à sacola</span></button><button class="favorite-icon-button" id="modalFavoriteButton" aria-label="Salvar como favorito" title="Salvar como favorito"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="14" r="7"></circle><path d="M18 14h11l12 12-15 15L14 29V17"></path><path d="M21 23h12M24 28h9M27 33h3"></path></svg></button></div>
           <div class="shipping-calculator"><label for="shippingCep">Calcular frete</label><div class="shipping-row"><input id="shippingCep" inputmode="numeric" maxlength="9" placeholder="Digite seu CEP"><button id="calculateShipping" type="button">Calcular</button></div><small id="shippingResult">Consulte uma estimativa de entrega para seu endereço.</small></div>
         </div>
