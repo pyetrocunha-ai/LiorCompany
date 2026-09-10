@@ -24,6 +24,10 @@ load_env()
 PORT = int(os.getenv("PORT", "3000"))
 HOST = "0.0.0.0" if os.getenv("PORT") else (os.getenv("HOST", "127.0.0.1").strip() or "127.0.0.1")
 DB_PATH = Path(os.getenv("LIOR_DB_PATH", str(ROOT / "data" / "lior.db")))
+try:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+except OSError:
+    DB_PATH = Path("/tmp/lior.db")
 OPEN_BROWSER = os.getenv("OPEN_BROWSER", "1" if os.name == "nt" else "0").strip().lower() in {"1", "true", "yes", "sim"}
 MP_PUBLIC_KEY = os.getenv("MP_PUBLIC_KEY", "").strip()
 MP_ACCESS_TOKEN = os.getenv("MP_ACCESS_TOKEN", "").strip()
