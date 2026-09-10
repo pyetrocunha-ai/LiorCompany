@@ -1737,7 +1737,8 @@
 
 /* Conta no celular: itens sem compressao e logo separado do titulo. */
 .customer-account-nav{display:grid!important}
-.customer-account-nav button{min-width:0;flex:none;overflow-wrap:anywhere}
+.customer-account-nav{min-width:0;max-width:100%;grid-template-columns:minmax(0,1fr)!important}
+.customer-account-nav button{min-width:0;max-width:100%;width:100%;flex:none;overflow-wrap:anywhere}
 .customer-account-nav button span{flex:0 0 28px}
 @media (max-width:680px){
   .customer-account-modal,
