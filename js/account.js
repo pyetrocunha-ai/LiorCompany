@@ -261,7 +261,11 @@
               state.user = data.user; paint(true); fill(data.user);
             } catch (error) { message('googleLoginMessage', error.message, true); }
           }});
-          window.google.accounts.id.prompt();
+          var googleButton = byId('googleLoginButton');
+          googleButton.innerHTML = '';
+          googleButton.classList.remove('is-hidden');
+          byId('loginGoogle').classList.add('is-hidden');
+          window.google.accounts.id.renderButton(googleButton, {theme:'outline', size:'large', text:'signin_with', shape:'rectangular', width:360});
         };
         if (window.google && window.google.accounts && window.google.accounts.id) start();
         else {
