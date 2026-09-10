@@ -1,0 +1,3 @@
+/* Layout estrutural dos módulos da loja. */
+.wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.section { min-height: 60vh; }

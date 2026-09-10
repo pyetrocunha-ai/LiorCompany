@@ -1,0 +1,3 @@
+/* Extensões visuais específicas da conta. */
+.customer-account-sidebar.is-locked { opacity: .85; }
+.auth-message.error { color: #d47768; }

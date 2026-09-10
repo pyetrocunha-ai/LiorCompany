@@ -7,6 +7,10 @@ services:
     buildCommand: ""
     startCommand: python server_python/app.py
     autoDeploy: false
+    disk:
+      name: lior-company-data
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: HOST
         value: 0.0.0.0
@@ -16,6 +20,8 @@ services:
         value: 3.12.7
       - key: SECURE_COOKIES
         value: "true"
+      - key: LIOR_DB_PATH
+        value: /var/data/lior.db
       - key: GOOGLE_CLIENT_ID
         sync: false
       - key: MP_PUBLIC_KEY

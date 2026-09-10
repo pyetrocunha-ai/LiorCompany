@@ -1,0 +1,3 @@
+/* Extensões visuais específicas do checkout. */
+.payment-modal[hidden], .payment-loading[hidden], .payment-config-message[hidden],
+.payment-result-panel[hidden], .pix-status-panel[hidden] { display: none; }

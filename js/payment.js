@@ -75,7 +75,8 @@
       status_detail: payment.status_detail,
       payment_method_id: payment.payment_method_id,
       payment_type_id: payment.payment_type_id,
-      transaction_amount: payment.transaction_amount
+      transaction_amount: payment.transaction_amount,
+      order_id: payment.order_id
     };
   }
 
@@ -116,10 +117,7 @@
   }
 
   async function fetchPaymentStatus(paymentId) {
-    var response = await fetch(apiBase + '/payments/' + encodeURIComponent(paymentId), { headers: { Accept: 'application/json' } });
-    var data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Não foi possível consultar o pagamento.');
-    return data;
+    return window.LIOR_API.request(apiBase + '/payments/' + encodeURIComponent(paymentId), {headers: {Accept: 'application/json'}});
   }
 
   function startAutomaticConfirmation(paymentId) {
@@ -160,14 +158,24 @@
   }
 
   async function submitPayment(formData) {
-    var response = await fetch(apiBase + '/payments', {
+    if (!checkoutContext.orderId) throw new Error('O pedido ainda não foi criado. Faça login e tente novamente.');
+    return window.LIOR_API.request(apiBase + '/payments', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ formData: formData, checkout: checkoutContext })
+      body: {formData: formData, orderId: checkoutContext.orderId}
     });
-    var data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Não foi possível processar o pagamento.');
-    return data;
+  }
+
+  async function ensureOrder() {
+    if (checkoutContext.orderId) return checkoutContext.orderId;
+    var result = await window.LIOR_API.request('/api/orders', {
+      method: 'POST',
+      body: {checkout: checkoutContext}
+    });
+    if (!result.order || !result.order.id) throw new Error('Não foi possível criar o pedido.');
+    checkoutContext.orderId = result.order.id;
+    checkoutContext.total = Number(result.order.total);
+    setText('paymentTotal', brl(checkoutContext.total));
+    return checkoutContext.orderId;
   }
 
   async function mountBrick(publicKey) {
@@ -211,7 +219,7 @@
       callbacks: {
         onReady: function () { show(el('paymentLoading'), false); },
         onSubmit: function (payload) {
-          return submitPayment(payload.formData).then(function (payment) {
+          return ensureOrder().then(function () { return submitPayment(payload.formData); }).then(function (payment) {
             if (payment.payment_method_id === 'pix') showPix(payment);
             else if (!handleTerminalStatus(payment)) {
               showResult('pending', 'Pagamento em análise', 'O banco está analisando a transação. A atualização será automática.', 'Fechar');
@@ -239,6 +247,7 @@
     openModal();
     setText('paymentTotal', brl(context.total));
     try {
+      await ensureOrder();
       var response = await fetch(apiBase + '/config', { headers: { Accept: 'application/json' } });
       var config = await response.json();
       if (!response.ok || !config.configured || !config.publicKey) {

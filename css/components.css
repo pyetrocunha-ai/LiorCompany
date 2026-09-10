@@ -1,0 +1,3 @@
+/* Componentes compartilhados (a aparência detalhada permanece em base.css). */
+.full { width: 100%; }
+.empty { padding: 2rem; text-align: center; }

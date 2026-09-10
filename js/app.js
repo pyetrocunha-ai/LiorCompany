@@ -1,231 +1,184 @@
-(function(){
-var WHATSAPP='5547999999999';
-var products=[
-{id:'dryfit-preta',category:'camisetas',line:'Dry Fit',name:'Camiseta Dry Fit Preta',price:60,images:['img/dryfit-preta-frente-new.jpg','img/dryfit-preta-verso-new.jpg'],desc:'Camiseta esportiva leve, respirável e confortável para treino e rotina.'},
-{id:'alg-preta',category:'camisetas',line:'Algodão 30.1',name:'Camiseta Algodão 30.1 Preta',price:90,images:['img/algodao-preta-frente-new.jpg','img/algodao-preta-verso-new.jpg'],desc:'Algodão 30.1 macio, respirável e com acabamento minimalista.'},
-{id:'alg-off',category:'camisetas',line:'Algodão 30.1',name:'Camiseta Algodão 30.1 Off White',price:90,images:['img/algodao-offwhite-frente-new.jpg','img/algodao-offwhite-verso-new.jpg'],desc:'Algodão 30.1 com toque confortável e cor off white sofisticada.'},
-{id:'alg-branca',category:'camisetas',line:'Algodão 30.1',name:'Camiseta Algodão 30.1 Branca',price:90,images:['img/camiseta-branca-frente-new.jpg','img/camiseta-branca-verso-new.jpg'],desc:'Peça essencial em algodão 30.1, limpa e versátil.'},
-{id:'prem-preta',category:'camisetas',line:'Premium',name:'Camiseta Premium Preta',price:120,images:['img/premium-preta-frente-new.jpg','img/premium-preta-verso-new.jpg'],desc:'Linha superior com tecido de toque mais encorpado e acabamento refinado.'},
-{id:'prem-branca',category:'camisetas',line:'Premium',name:'Camiseta Premium Branca',price:120,images:['img/premium-branca-frente-new.jpg','img/premium-branca-verso-new.jpg'],desc:'Tecido premium, caimento elegante e conforto elevado.'},
-{id:'prem-cinza',category:'camisetas',line:'Premium',name:'Camiseta Premium Cinza',price:120,images:['img/premium-cinza-frente-new.jpg','img/premium-cinza-verso-new.jpg'],desc:'Linha premium em cinza, com visual discreto e acabamento superior.'},
-{id:'over-marrom',category:'camisetas',line:'Oversized',name:'Camiseta Oversized Marrom',price:100,images:['img/oversized-marrom-frente-new.jpg','img/oversized-marrom-verso-new.jpg'],desc:'Modelagem ampla, moderna e confortável.'},
-{id:'over-branca',category:'camisetas',line:'Oversized',name:'Camiseta Oversized Branca',price:100,images:['img/oversized-branca-frente-new.jpg','img/oversized-branca-verso-new.jpg'],desc:'Modelagem oversized branca com identidade minimalista LIOR.'},
-{id:'moletom-preto',category:'moletons',line:'Canguru',name:'Moletom Canguru Preto',price:120,images:['img/moletom-preto-frente-new.jpg','img/moletom-preto-verso-new.jpg'],desc:'Moletom com capuz, bolso canguru e punhos ajustados.'},
-{id:'comp-preto',category:'shorts',line:'Dry Fit com Compressão',name:'Shorts Dry Fit com Compressão Preto',price:59,images:['img/short-compressao-preto-frente-new.jpg','img/short-compressao-preto-verso-new.jpg'],desc:'Shorts esportivo com camada de compressão interna.'},
-{id:'comp-chumbo',category:'shorts',line:'Dry Fit com Compressão',name:'Shorts Dry Fit com Compressão Chumbo',price:59,images:['img/short-compressao-chumbo-frente-new.jpg','img/short-compressao-chumbo-verso-new.jpg'],desc:'Performance e conforto em tom chumbo.'},
-{id:'comp-marinho',category:'shorts',line:'Dry Fit com Compressão',name:'Shorts Dry Fit com Compressão Azul Marinho',price:59,images:['img/short-compressao-marinho-frente-new.jpg','img/short-compressao-marinho-verso-new.jpg'],desc:'Shorts esportivo azul-marinho com compressão.'},
-{id:'comp-branco',category:'shorts',line:'Dry Fit com Compressão',name:'Shorts Dry Fit com Compressão Branco',price:59,images:['img/short-compressao-branco-frente-new.jpg','img/short-compressao-branco-verso-new.jpg'],desc:'Shorts branco com forro de compressão preto.'},
-{id:'elas-branco',category:'shorts',line:'Elastano sem Forro',name:'Shorts Elastano Branco',price:45,images:['img/short-elastano-branco-frente-new.jpg','img/short-elastano-branco-verso-new.jpg'],desc:'Shorts leve com elastano, sem forro interno.'},
-{id:'elas-preto',category:'shorts',line:'Elastano sem Forro',name:'Shorts Elastano Preto',price:45,images:['img/short-elastano-preto-frente-new.jpg','img/short-elastano-preto-verso-new.jpg'],desc:'Shorts preto com elastano, leve e sem forro interno.'},
-{id:'calca-preta',category:'calcas',line:'Tactel com Elastano',name:'Calça Tactel com Elastano Preta',price:70,images:['img/calca-preta-frente-new.jpg','img/calca-preta-verso-new.jpg'],desc:'Calça leve com cintura ajustável, bolsos e punho na barra.'},
-{id:'calca-cinza',category:'calcas',line:'Tactel com Elastano',name:'Calça Tactel com Elastano Cinza',price:70,images:['img/calca-cinza-frente-new.jpg','img/calca-cinza-verso-new.jpg'],desc:'Tactel com elastano em cinza, confortável e versátil.'},
-{id:'cv-preta-sem',category:'cortaventos',line:'Sem Forro',name:'Corta-Vento Preta sem Forro',price:100,images:['img/cortavento-preta-sem-frente-new.jpg','img/cortavento-preta-sem-verso-new.jpg','img/cortavento-preta-sem-detalhe-new.jpg'],desc:'Jaqueta leve, sem forro interno, com capuz e bolsos.'},
-{id:'cv-chumbo-sem',category:'cortaventos',line:'Sem Forro',name:'Corta-Vento Chumbo sem Forro',price:100,images:['img/cortavento-chumbo-sem-frente-new.jpg','img/cortavento-chumbo-sem-verso-new.jpg','img/cortavento-chumbo-sem-detalhe-new.jpg'],desc:'Corta-vento chumbo leve e sem forro.'},
-{id:'cv-marinho-sem',category:'cortaventos',line:'Sem Forro',name:'Corta-Vento Azul Marinho sem Forro',price:100,images:['img/cortavento-marinho-sem-frente-new.jpg','img/cortavento-marinho-sem-verso-new.jpg','img/cortavento-marinho-sem-detalhe-new.jpg'],desc:'Corta-vento azul-marinho sem forro interno.'},
-{id:'cv-preta-forro',category:'cortaventos',line:'Com Forro',name:'Corta-Vento Preta com Forro',price:100,images:['img/cortavento-preta-forro-frente-new.jpg','img/cortavento-preta-forro-verso-new.jpg','img/cortavento-preta-forro-detalhe-new.jpg'],desc:'Jaqueta preta com forro interno em tela respirável.'},
-{id:'cv-verde-forro',category:'cortaventos',line:'Com Forro',name:'Corta-Vento Verde Militar com Forro',price:100,images:['img/cortavento-verde-forro-frente-new.jpg','img/cortavento-verde-forro-verso-new.jpg','img/cortavento-verde-forro-detalhe-new.jpg'],desc:'Jaqueta verde militar com forro interno em tela.'}
-];
-var cats=[{id:'camisetas',name:'Camisetas',icon:'shirt',desc:'Algodão Premium e Oversized',image:'img/categories_v9/category-camisetas-v9.jpg'},{id:'shorts',name:'Shorts',icon:'shorts',desc:'Compressão e elastano',image:'img/categories_v9/category-shorts-v9.jpg'},{id:'calcas',name:'Calças',icon:'pants',desc:'Tactel com elastano',image:'img/categories_v9/category-calcas-v9.jpg'},{id:'moletons',name:'Moletons',icon:'hoodie',desc:'Conforto para dias frios',image:'img/categories_v9/category-moletons-v9.jpg'},{id:'cortaventos',name:'Corta-Ventos',icon:'wind',desc:'Com e sem forro',image:'img/categories_v9/category-cortaventos-v9.jpg'}];
-var cart=[];var favorites=[];var current=null;var galleryIndex=0;var touchStartX=0;var selectedSize='M';var qty=1;var currentCategory='';var currentLine='all';var selectedShipping=null;var cartDiscount=0;var cartCoupon='';
-function money(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}function byId(id){return document.getElementById(id);}function showView(name){var ids=['home','categories','products','about','contact'];for(var i=0;i<ids.length;i++){byId(ids[i]+'View').className='view'+(ids[i]===name?' active':'')+(ids[i]==='categories'||ids[i]==='products'||ids[i]==='about'||ids[i]==='contact'?' section':'');}window.scrollTo(0,0);byId('navMenu').className='';}
-function categoryIcon(type){var icons={shirt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 5 5.5 2.5 9l3 2 1.4-1.8V20h10.2V9.2l1.4 1.8 3-2L19 5.5 16 4c-.9 1.2-2.2 1.9-4 1.9S8.9 5.2 8 4Z"/></svg>',shorts:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14l-1 16h-5l-1-7-1 7H6L5 4Z"/><path d="M6 8h12M12 5v8"/></svg>',pants:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 17h-5l-1-10-1 10H6L7 3Z"/><path d="M7 7h10M12 3v7"/></svg>',hoodie:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5c.6-1.5 1.8-2.3 4-2.3S15.4 3.5 16 5l3 2 2 5-3 1v7H6v-7l-3-1 2-5 3-2Z"/><path d="M9 5c.4 1.5 1.4 2.2 3 2.2S14.6 6.5 15 5M9 14h6"/></svg>',wind:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h10c2.8 0 2.8-4 0-4-1.3 0-2.2.7-2.5 1.6M3 12h15c3.2 0 3.2 4.5 0 4.5-1.5 0-2.5-.8-2.8-2M3 16h7"/></svg>'};return icons[type]||icons.shirt;}
-function renderCategories(){var html='',filters='<button class="active" data-category-view-filter="all">Todas</button>',opts='<option value="all">Todas as categorias</option>';for(var i=0;i<cats.length;i++){html+='<button class="category-card category-image-card category-'+cats[i].id+'" data-cat="'+cats[i].id+'" data-category-card="'+cats[i].id+'" aria-label="Abrir coleção '+cats[i].name+'"><img class="category-final-image" src="'+cats[i].image+'" alt="'+cats[i].name+' — '+cats[i].desc+'" loading="eager"></button>';filters+='<button data-category-view-filter="'+cats[i].id+'">'+cats[i].name+'</button>';opts+='<option value="'+cats[i].id+'">'+cats[i].name+'</option>';}byId('categoryGrid').innerHTML=html;byId('categoryFilterBar').innerHTML=filters;byId('categoryFilter').innerHTML=opts;var toolbar=byId('categoryFilter').parentNode;if(toolbar&&!byId('shirtLineFilters')){var host=document.createElement('div');host.id='shirtLineFilters';host.className='shirt-line-filters hidden';toolbar.parentNode.insertBefore(host,toolbar.nextSibling);}}
-function applyCategoryViewFilter(filter){
-  var f=filter||'all',valid=f==='all';
-  for(var vi=0;vi<cats.length;vi++)if(cats[vi].id===f)valid=true;
-  if(!valid)f='all';
-  var cards=document.querySelectorAll('[data-category-card]'),grid=byId('categoryGrid');
-  for(var ci=0;ci<cards.length;ci++){
-    var hidden=f!=='all'&&cards[ci].getAttribute('data-category-card')!==f;
-    cards[ci].classList.toggle('category-hidden',hidden);
-    cards[ci].setAttribute('aria-hidden',hidden?'true':'false');
+/* Bootstrap da loja: os módulos cuidam de estado, telas e integrações. */
+(function () {
+  'use strict';
+  function byId(id) { return document.getElementById(id); }
+  function showView(name) {
+    ['home', 'categories', 'products', 'about', 'contact'].forEach(function (view) {
+      var node = byId(view + 'View');
+      if (node) node.className = 'view' + (view === name ? ' active' : '') +
+        (view === 'home' ? '' : ' section');
+    });
+    window.scrollTo(0, 0);
+    byId('navMenu').className = '';
   }
-  if(grid){
-    grid.classList.toggle('single-category',f!=='all');
-    grid.setAttribute('data-active-filter',f);
+  function closeDrawers() {
+    ['productModal', 'cartDrawer', 'searchDrawer', 'favoritesDrawer', 'accountModal'].forEach(function (id) {
+      var node = byId(id);
+      if (node) node.className = node.className.replace(/\s*show/g, '');
+    });
+    byId('overlay').className = 'overlay';
   }
-  var bar=byId('categoryFilterBar'),buttons=bar?bar.getElementsByTagName('button'):[];
-  for(var bi=0;bi<buttons.length;bi++)buttons[bi].className=buttons[bi].getAttribute('data-category-view-filter')===f?'active':'';
-}
-function fillLineFilter(cat){currentLine='all';renderShirtLines(cat);}
-function renderShirtLines(cat){var host=byId('shirtLineFilters');if(!host)return;if(cat!=='camisetas'){host.innerHTML='';host.className='shirt-line-filters hidden';currentLine='all';return;}var lines=[['Algodão 30.1','Linha Algodão'],['Premium','Linha Premium'],['Oversized','Linha Oversized']];var html='<span>Escolha a linha:</span>';for(var i=0;i<lines.length;i++)html+='<button class="'+(currentLine===lines[i][0]?'active':'')+'" data-shirt-line="'+lines[i][0]+'">'+lines[i][1]+'</button>';host.className='shirt-line-filters';host.innerHTML=html;}
-function openCategory(cat){currentCategory=cat;currentLine='all';var c=null;for(var i=0;i<cats.length;i++)if(cats[i].id===cat)c=cats[i];byId('productTitle').innerHTML=c?c.name:'Todos os produtos';byId('productKicker').innerHTML='Coleção LIOR';byId('categoryFilter').value=cat||'all';renderShirtLines(cat||'all');byId('searchInput').value='';renderProducts();showView('products');}
-function isFavorite(id){return favorites.indexOf(id)!==-1;}function tagIcon(){return '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="14" r="7"></circle><path d="M18 14h11l12 12-15 15L14 29V17"></path><path d="M21 23h12M24 28h9M27 33h3"></path></svg>';}function renderProducts(){var term=byId('searchInput').value.toLowerCase();var line=currentLine;var cat=byId('categoryFilter').value||currentCategory||'all';var html='';for(var i=0;i<products.length;i++){var p=products[i];if(cat!=='all'&&p.category!==cat)continue;if(line!=='all'&&p.line!==line)continue;if(term&&p.name.toLowerCase().indexOf(term)<0)continue;html+='<article class="product-card"><button class="favorite-card-button '+(isFavorite(p.id)?'active':'')+'" data-favorite="'+p.id+'" aria-label="Salvar '+p.name+' como favorito">'+tagIcon()+'</button><button class="product-photo" data-product="'+p.id+'"><img src="'+p.images[0]+'" alt="'+p.name+'"></button><div class="product-info"><div class="line">'+p.line+'</div><h3>'+p.name+'</h3><div class="price">'+money(p.price)+'</div><button class="primary" data-product="'+p.id+'">Ver produto</button></div></article>';}byId('productGrid').innerHTML=html||'<div class="empty">Nenhum produto encontrado.</div>';var sf=byId('shirtLineFilters');if(sf&&cat==='camisetas'){var bs=sf.querySelectorAll('[data-shirt-line]');for(var z=0;z<bs.length;z++)bs[z].className=(bs[z].getAttribute('data-shirt-line')===line?'active':'');}}
-function findProduct(id){for(var i=0;i<products.length;i++)if(products[i].id===id)return products[i];return null;}
-function updateGallery(index){
-  if(!current||!current.images.length)return;
-  galleryIndex=(index+current.images.length)%current.images.length;
-  var image=byId('modalImage');
-  var viewport=byId('galleryViewport');
-  image.className='gallery-main-image changing';
-  image.onload=function(){
-    if(image.naturalWidth&&image.naturalHeight){viewport.style.setProperty('--gallery-ratio',image.naturalWidth+' / '+image.naturalHeight);}
-    image.className='gallery-main-image';
-  };
-  setTimeout(function(){image.src=current.images[galleryIndex];image.alt=current.name+' — '+(galleryIndex===0?'frente':galleryIndex===1?'verso':'detalhe');if(image.complete)image.onload();},90);
-  var ts=byId('thumbs').getElementsByTagName('button');
-  for(var i=0;i<ts.length;i++)ts[i].className='thumb-button'+(i===galleryIndex?' active':'');
-  byId('galleryCounter').innerHTML=(galleryIndex+1)+' / '+current.images.length;
-  byId('galleryPrev').style.display=current.images.length>1?'grid':'none';
-  byId('galleryNext').style.display=current.images.length>1?'grid':'none';
-}
-function openProduct(id){current=findProduct(id);if(!current)return;galleryIndex=0;selectedSize='M';qty=1;byId('qtyInput').value=qty;byId('modalCategory').innerHTML=current.line;byId('modalName').innerHTML=current.name;byId('modalPrice').innerHTML=money(current.price);byId('modalDescription').innerHTML=current.desc;var t='';for(var i=0;i<current.images.length;i++){var label=i===0?'Frente':i===1?'Verso':'Detalhe';t+='<button type="button" class="thumb-button '+(i===0?'active':'')+'" data-gallery-index="'+i+'" aria-label="Ver '+label+'"><img src="'+current.images[i]+'" alt="'+label+'"><span>'+label+'</span></button>';}byId('thumbs').innerHTML=t;updateGallery(0);var s=['P','M','G','GG'];var sh='';for(i=0;i<s.length;i++)sh+='<button class="size-btn '+(s[i]==='M'?'active':'')+'" data-size="'+s[i]+'">'+s[i]+'</button>';byId('sizeOptions').innerHTML=sh;updateModalFavorite();renderReviews();byId('reviewsSection').className='reviews-section is-collapsed';byId('reviewsSection').setAttribute('aria-hidden','true');byId('reviewsJump').innerHTML='Ver avaliações';byId('shippingCep').value='';selectedShipping=null;byId('shippingResult').className='';byId('shippingResult').innerHTML='Consulte uma estimativa de PAC ou SEDEX para seu endereço.';byId('productModalScroll').scrollTop=0;byId('overlay').className='overlay show';byId('productModal').className='modal product-modal show';}
-function closeAll(){byId('overlay').className='overlay';byId('productModal').className='modal product-modal';byId('cartDrawer').className='cart-drawer';byId('searchDrawer').className='utility-drawer';byId('favoritesDrawer').className='utility-drawer';byId('accountModal').className='account-modal customer-account-modal';var pm=byId('paymentModal');if(pm)pm.className='payment-modal';}
-function addCart(){if(!current)return;var found=null;for(var i=0;i<cart.length;i++)if(cart[i].id===current.id&&cart[i].size===selectedSize)found=cart[i];if(found)found.qty+=qty;else cart.push({id:current.id,size:selectedSize,qty:qty});saveCart();renderCart();byId('productModal').className='modal product-modal';byId('cartDrawer').className='cart-drawer show';}
-function saveFavorites(){try{localStorage.setItem('lior_favorites',JSON.stringify(favorites));}catch(e){}}function loadFavorites(){try{var f=JSON.parse(localStorage.getItem('lior_favorites')||'[]');if(f&&f.length)favorites=f;}catch(e){favorites=[];}}function toggleFavorite(id){var i=favorites.indexOf(id);if(i===-1)favorites.push(id);else favorites.splice(i,1);saveFavorites();renderFavorites();if(currentCategory)renderProducts();updateModalFavorite();}function updateModalFavorite(){var b=byId('modalFavoriteButton');if(!b||!current)return;var active=isFavorite(current.id);b.className='favorite-icon-button'+(active?' active':'');b.setAttribute('aria-label',active?'Remover dos favoritos':'Salvar como favorito');b.setAttribute('title',active?'Remover dos favoritos':'Salvar como favorito');}function renderFavorites(){var html='';for(var i=0;i<favorites.length;i++){var p=findProduct(favorites[i]);if(!p)continue;html+='<div class="favorite-row"><img src="'+p.images[0]+'" alt="'+p.name+'"><div><strong>'+p.name+'</strong><span>'+money(p.price)+'</span></div><div><button data-product="'+p.id+'">Ver</button><button data-favorite="'+p.id+'">Remover</button></div></div>';}byId('favoritesItems').innerHTML=html||'<div class="empty">Você ainda não salvou produtos favoritos.</div>';var fc=byId('favoritesCount');if(fc)fc.innerHTML=favorites.length;}function renderGlobalSearch(){var term=byId('globalSearchInput').value.toLowerCase().trim();var html='';if(!term){byId('globalSearchResults').innerHTML='<div class="empty">Digite para pesquisar em toda a coleção.</div>';return;}for(var i=0;i<products.length;i++){var p=products[i];if((p.name+' '+p.line).toLowerCase().indexOf(term)===-1)continue;html+='<div class="utility-result"><img src="'+p.images[0]+'" alt="'+p.name+'"><div><strong>'+p.name+'</strong><span>'+money(p.price)+'</span></div><button data-product="'+p.id+'">Ver</button></div>';}byId('globalSearchResults').innerHTML=html||'<div class="empty">Nenhum produto encontrado.</div>';}function openUtility(id){closeAll();byId('overlay').className='overlay show';if(id==='accountModal')byId(id).className='account-modal customer-account-modal show';else if(id==='cartDrawer')byId(id).className='cart-drawer show';else byId(id).className='utility-drawer show';}function getAccountData(){try{return JSON.parse(localStorage.getItem('lior_account')||'{}')||{};}catch(e){return {};}}
-function loadAccount(){var a=getAccountData();byId('accountName').value=a.name||'';byId('accountNickname').value=a.nickname||'';byId('accountCpf').value=a.cpf||'';var type=a.contactType||(a.phone&&!a.email?'phone':'email');if(type==='whatsapp')type='phone';byId('accountContactType').value=type;byId('accountContact').value=a.contact||(type==='phone'?(a.phone||''):(a.email||''));byId('accountBirthDate').value=a.birthDate||'';if(byId('accountMaritalStatus'))byId('accountMaritalStatus').value=a.maritalStatus||'';var gender=a.gender||'';var genderRadios=document.querySelectorAll('input[name="accountGender"]');for(var gi=0;gi<genderRadios.length;gi++)genderRadios[gi].checked=genderRadios[gi].value===gender;byId('accountCep').value=a.cep||'';byId('accountRecipient').value=a.recipient||a.name||'';byId('accountStreet').value=a.street||'';byId('accountNumber').value=a.number||'';byId('accountComplement').value=a.complement||'';byId('accountReference').value=a.reference||'';byId('accountDistrict').value=a.district||'';byId('accountCity').value=a.city||'';var n=a.nickname||a.name||'Cliente LIOR';byId('customerGreeting').innerHTML=esc(n);byId('customerAvatar').innerHTML=(n.charAt(0)||'L').toUpperCase();syncContactPlaceholder();resetCpfValidationMessage();}
-function persistAccount(messageId){var old=getAccountData();var contactType=byId('accountContactType').value||'email';var contact=byId('accountContact').value.trim();var selectedGender=document.querySelector('input[name="accountGender"]:checked');var a={name:byId('accountName').value.trim(),nickname:byId('accountNickname').value.trim(),cpf:byId('accountCpf').value.trim(),contactType:contactType,contact:contact,birthDate:byId('accountBirthDate').value,maritalStatus:byId('accountMaritalStatus')?byId('accountMaritalStatus').value:'',gender:selectedGender?selectedGender.value:'',cep:byId('accountCep').value.trim(),recipient:byId('accountRecipient').value.trim(),street:byId('accountStreet').value.trim(),number:byId('accountNumber').value.trim(),complement:byId('accountComplement').value.trim(),reference:byId('accountReference').value.trim(),district:byId('accountDistrict').value.trim(),city:byId('accountCity').value.trim(),email:contactType==='email'?contact:(old.email||''),phone:contactType==='phone'?contact:(old.phone||'')};for(var k in old)if(a[k]===undefined||a[k]===null||a[k]==='')a[k]=old[k]||'';try{localStorage.setItem('lior_account',JSON.stringify(a));}catch(e){}loadAccount();if(messageId&&byId(messageId)){byId(messageId).className='';byId(messageId).innerHTML='Dados salvos neste aparelho.';}renderAccountOrders();}
-function saveAccount(){var msg=byId('accountMessage'),name=byId('accountName').value.trim(),cpf=byId('accountCpf').value.trim(),contactType=byId('accountContactType').value,contact=byId('accountContact').value.trim();if(!name){msg.className='auth-message error';msg.innerHTML='Informe o nome completo.';return;}if(cpf&&!isValidCpf(cpf)){msg.className='auth-message error';msg.innerHTML='O CPF informado não é válido.';setCpfValidationMessage('CPF inválido. Confira os números.','error');return;}if(contact){if(contactType==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)){msg.className='auth-message error';msg.innerHTML='Digite um Gmail válido.';return;}if(contactType==='phone'&&contact.replace(/\D/g,'').length<10){msg.className='auth-message error';msg.innerHTML='Digite um telefone com DDD.';return;}}persistAccount('accountMessage');}
-function saveAddress(){persistAccount('addressMessage');}function saveCart(){try{localStorage.setItem('lior_cart',JSON.stringify(cart));}catch(e){}}
-function loadCart(){try{var c=JSON.parse(localStorage.getItem('lior_cart')||'[]');if(c&&c.length)cart=c;}catch(e){cart=[];}}
-function renderCart(){var html='',subtotal=0,count=0;for(var i=0;i<cart.length;i++){var p=findProduct(cart[i].id);if(!p)continue;subtotal+=p.price*cart[i].qty;count+=cart[i].qty;html+='<div class="cart-row"><img src="'+p.images[0]+'"><div class="cart-row-info"><strong>'+p.name+'</strong><small>Tam. '+cart[i].size+'</small><div class="cart-qty"><button data-cart-minus="'+i+'" aria-label="Diminuir quantidade">−</button><span>'+cart[i].qty+'</span><button data-cart-plus="'+i+'" aria-label="Aumentar quantidade">+</button></div><div>'+money(p.price*cart[i].qty)+'</div></div><button class="remove-cart" data-remove="'+i+'" aria-label="Remover produto">×</button></div>';}var freight=selectedShipping?Number(selectedShipping.price)||0:0;var discount=Math.min(Number(cartDiscount)||0,subtotal);var total=Math.max(0,subtotal-discount+freight);byId('cartItems').innerHTML=html||'<div class="empty">Sua sacola está vazia.</div>';var subtotalEl=byId('cartSubtotal'),discountEl=byId('cartDiscount'),shippingEl=byId('cartShipping');if(subtotalEl)subtotalEl.innerHTML=money(subtotal);if(discountEl)discountEl.innerHTML=money(discount);if(shippingEl)shippingEl.innerHTML=selectedShipping?money(freight)+' · '+selectedShipping.label:'A calcular';byId('cartTotal').innerHTML=money(total);byId('cartCount').innerHTML=count;}
-function checkout(){if(!cart.length){alert('Sua sacola está vazia.');return;}var subtotal=0,items=[];for(var i=0;i<cart.length;i++){var p=findProduct(cart[i].id);if(!p)continue;subtotal+=p.price*cart[i].qty;items.push({id:p.id,name:p.name,size:cart[i].size,qty:cart[i].qty,unitPrice:p.price});}var freight=selectedShipping?Number(selectedShipping.price)||0:0;var discount=Math.min(Number(cartDiscount)||0,subtotal);var total=Math.max(0,subtotal-discount+freight);if(!isFinite(total)){alert('Não foi possível calcular o total. Atualize a página e tente novamente.');return;}var account=getAccountData();window.LIOR_CHECKOUT_CONTEXT={subtotal:subtotal,discount:discount,freight:freight,total:total,coupon:cartCoupon||'',shipping:selectedShipping,items:items,buyer:{name:account.name||'',email:account.email||account.contact||'',cpf:(account.cpf||'').replace(/\D/g,''),phone:account.phone||''},address:accountAddressText(account)};byId('paymentTotal').innerHTML=money(total);closeAll();if(window.LIOR_PAYMENT&&window.LIOR_PAYMENT.open){window.LIOR_PAYMENT.open(window.LIOR_CHECKOUT_CONTEXT);}else{byId('overlay').className='overlay show';byId('paymentModal').className='payment-modal show';}}
-function completePixOrder(){if(!cart.length)return;var subtotal=0,orderItems=[];for(var i=0;i<cart.length;i++){var p=findProduct(cart[i].id);if(!p)continue;subtotal+=p.price*cart[i].qty;orderItems.push({id:p.id,size:cart[i].size,qty:cart[i].qty,reviewed:false});}var freight=selectedShipping?selectedShipping.price:0;var discount=Math.min(cartDiscount,subtotal);var total=subtotal-discount+freight;var account=getAccountData(),address=accountAddressText(account);orders.push({id:'PED'+Date.now(),createdAt:Date.now(),status:'placed',items:orderItems,subtotal:subtotal,discount:discount,coupon:cartCoupon,shipping:selectedShipping,total:total,paymentMethod:'Pix — aguardando confirmação',address:address});saveOrders();cart=[];saveCart();renderCart();renderAccountOrders();closeAll();alert('Pedido criado. A LIOR deve confirmar o recebimento do Pix antes do envio.');}
-function finalizePaidOrder(payment){if(!cart.length)return null;var paymentId=String(payment&&payment.id||'');if(paymentId&&localStorage.getItem('lior_paid_'+paymentId))return paymentId;var subtotal=0,orderItems=[];for(var i=0;i<cart.length;i++){var p=findProduct(cart[i].id);if(!p)continue;subtotal+=p.price*cart[i].qty;orderItems.push({id:p.id,size:cart[i].size,qty:cart[i].qty,reviewed:false});}var freight=selectedShipping?Number(selectedShipping.price)||0:0;var discount=Math.min(Number(cartDiscount)||0,subtotal);var total=Math.max(0,subtotal-discount+freight);var account=getAccountData(),address=accountAddressText(account);var label=(payment&&payment.payment_method_id==='pix')?'Pix':(payment&&payment.payment_type_id==='debit_card'?'Cartão de débito':'Cartão de crédito');var localId='PED'+Date.now();orders.push({id:localId,createdAt:Date.now(),status:'placed',items:orderItems,subtotal:subtotal,discount:discount,coupon:cartCoupon||'',shipping:selectedShipping,total:total,paymentMethod:label+' — aprovado',paymentId:paymentId,paymentStatus:'approved',address:address});saveOrders();if(paymentId)localStorage.setItem('lior_paid_'+paymentId,localId);cart=[];cartDiscount=0;cartCoupon='';selectedShipping=null;saveCart();renderCart();renderAccountOrders();return localId;}
-window.LIOR_STORE={finalizePaidOrder:finalizePaidOrder,getCheckoutContext:function(){return window.LIOR_CHECKOUT_CONTEXT||null;}};
-
-function esc(v){return String(v||'').replace(/[&<>\"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch];});}
-function loadReviews(){try{reviewsByProduct=JSON.parse(localStorage.getItem('lior_reviews')||'{}')||{};}catch(e){reviewsByProduct={};}}
-function saveReviews(){try{localStorage.setItem('lior_reviews',JSON.stringify(reviewsByProduct));}catch(e){}}
-function getReviews(){if(!current)return[];return reviewsByProduct[current.id]||[];}
-function dateLabel(ts){try{return new Date(ts).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(e){return'';}}
-function renderReviews(){if(!current)return;var list=getReviews().slice();var mode=byId('reviewsSort').value||'best';list.sort(function(a,b){if(mode==='recent')return b.createdAt-a.createdAt;if(b.stars!==a.stars)return b.stars-a.stars;return b.createdAt-a.createdAt;});var total=list.length,sum=0;for(var i=0;i<list.length;i++)sum+=list[i].stars;var avg=total?sum/total:5;byId('reviewsAverage').innerHTML=avg.toFixed(1).replace('.',',');byId('reviewsAverageStars').innerHTML='★★★★★'.slice(0,Math.round(avg))+'☆☆☆☆☆'.slice(0,5-Math.round(avg));byId('reviewsCount').innerHTML=total+' avaliaç'+(total===1?'ão':'ões');var html='';for(i=0;i<list.length;i++){var r=list[i];html+='<article class="review-card"><div class="review-card-head"><div><strong>'+esc(r.name)+'</strong><span class="stars-display">'+('★★★★★'.slice(0,r.stars)+'☆☆☆☆☆'.slice(0,5-r.stars))+'</span></div><span class="review-date">'+dateLabel(r.createdAt)+'</span></div><p>'+esc(r.text)+'</p><span class="verified-badge">Compra verificada</span>'+(r.reply?'<div class="store-reply"><strong>Resposta da LIOR</strong><p>'+esc(r.reply)+'</p></div>':'')+'</article>';}
-byId('reviewsList').innerHTML=html||'<div class="empty-reviews">Ainda não há avaliações publicadas para este produto.</div>';}
-function loadOrders(){try{orders=JSON.parse(localStorage.getItem('lior_orders')||'[]')||[];}catch(e){orders=[];}}
-function saveOrders(){try{localStorage.setItem('lior_orders',JSON.stringify(orders));}catch(e){}}
-var orderSteps=['placed','payment_pending','paid','preparing','shipped','out_for_delivery','delivered'];
-function orderStatusLabel(status){var m={placed:'Pedido realizado',payment_pending:'Aguardando pagamento',paid:'Pagamento aprovado',preparing:'Preparando pedido',shipped:'Enviado',out_for_delivery:'Saiu para entrega',delivered:'Entregue'};return m[status]||'Pedido realizado';}
-function stepIndex(status){var i=orderSteps.indexOf(status);return i<0?0:i;}
-function renderOrderTimeline(status){var labels=['Pagamento','Processando','Enviado','Entregue'];var descriptions=['Pagamento confirmado','Pedido em preparação','Pedido em transporte','Entrega finalizada'];var map={placed:0,payment_pending:0,paid:0,preparing:1,shipped:2,out_for_delivery:2,delivered:3};var active=map.hasOwnProperty(status)?map[status]:0;var cart='<svg class="timeline-cart-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 9h5l4 22h21l4-15H15"></path><circle cx="20" cy="39" r="2.5"></circle><circle cx="35" cy="39" r="2.5"></circle></svg>';var html='<div class="order-progress-wrap"><div class="order-progress-title"><span>Acompanhe seu pedido</span><small>O status é atualizado conforme cada etapa avança.</small></div><div class="order-timeline">';for(var i=0;i<labels.length;i++){var icon=i===3?cart:(i<active?'✓':i+1);html+='<div class="timeline-step '+(i<=active?'done':'')+(i===active?' current':'')+(i===3&&active===3?' completed':'')+'"><span>'+icon+'</span><small><b>'+labels[i]+'</b><em>'+descriptions[i]+'</em></small></div>';}return html+'</div></div>';}
-function renderAccountFavorites(){var box=byId('accountFavorites');if(!box)return;var html='';for(var i=0;i<favorites.length;i++){var p=findProduct(favorites[i]);if(p)html+='<article class="account-favorite-card"><img src="'+p.images[0]+'" alt="'+esc(p.name)+'"><div><strong>'+esc(p.name)+'</strong><span>'+money(p.price)+'</span></div><button data-product="'+p.id+'">Ver produto</button></article>';}box.innerHTML=html||'<div class="empty">Você ainda não possui produtos favoritos.</div>';}
-function renderAccountOrders(){var box=byId('accountOrders');if(!box)return;var html='';for(var i=orders.length-1;i>=0;i--){var o=orders[i],shipping=o.shipping||{},discount=o.discount||0;html+='<article class="account-order detailed-order"><div class="account-order-top"><div><small>REALIZADO EM: <b>'+dateLabel(o.createdAt)+'</b></small><h3>Pedido '+esc(o.id)+'</h3></div><span class="order-status '+(o.status==='delivered'?'delivered':'pending')+'">'+orderStatusLabel(o.status)+'</span></div><div class="order-finance-grid"><div><span>Forma de pagamento</span><strong>'+esc(o.paymentMethod||'A combinar pelo WhatsApp')+'</strong></div><div><span>Subtotal</span><strong>'+money(o.subtotal||0)+'</strong></div><div><span>Desconto</span><strong>'+(discount?'- '+money(discount):money(0))+'</strong>'+(o.coupon?'<small>Cupom: '+esc(o.coupon)+'</small>':'')+'</div><div><span>Frete</span><strong>'+(shipping.price!=null?money(shipping.price):'A calcular')+'</strong></div><div class="order-total-box"><span>Total</span><strong>'+money(o.total||0)+'</strong></div></div>'+renderOrderTimeline(o.status)+'<div class="order-delivery-grid"><div><span>Forma de entrega</span><strong>'+esc(shipping.label||'Envio a combinar')+'</strong></div><div><span>Prazo estimado</span><strong>'+(shipping.min?shipping.min+' a '+shipping.max+' dias úteis':'A confirmar')+'</strong></div><div><span>Destino</span><strong>'+esc(o.address||shipping.destination||'Endereço não informado')+'</strong></div></div><h4>Itens do pedido</h4>';for(var j=0;j<o.items.length;j++){var it=o.items[j],prod=findProduct(it.id);if(!prod)continue;html+='<div class="order-item"><img src="'+prod.images[0]+'" alt="'+esc(prod.name)+'"><div><strong>'+esc(prod.name)+'</strong><small>Tam. '+esc(it.size)+' · '+it.qty+' unidade'+(it.qty>1?'s':'')+'</small></div><div class="order-item-actions">';if(o.status==='delivered')html+=it.reviewed?'<span class="review-done">Avaliação publicada</span>':'<button class="primary" data-review-order="'+i+'" data-review-item="'+j+'">Avaliar produto</button>';else html+='<small>A avaliação será liberada após a entrega.</small>';html+='</div></div>';}if(ownerMode){html+='<div class="owner-order-controls">'+(o.status!=='delivered'?'<button class="owner-access active" data-advance-order="'+i+'">Avançar etapa</button>':'')+'<button class="owner-access" data-edit-order="'+i+'">Editar pagamento/desconto</button></div>';}html+='</article>';}
-box.innerHTML=html||'<div class="empty account-empty-order"><strong>Você ainda não possui pedidos.</strong><span>Quando finalizar uma compra, o acompanhamento aparecerá aqui.</span></div>';byId('accountOwnerAccess').className='owner-access'+(ownerMode?' active':'');byId('accountOwnerAccess').innerHTML=ownerMode?'Modo lojista ativo':'Área do lojista';renderAccountFavorites();}
-function switchAccountTab(name){var tabs=document.querySelectorAll('[data-account-tab]');for(var i=0;i<tabs.length;i++)tabs[i].className=tabs[i].getAttribute('data-account-tab')===name?'active':'';var panels=['orders','favorites','profile','addresses','payments','security'];for(i=0;i<panels.length;i++){var id='account'+panels[i].charAt(0).toUpperCase()+panels[i].slice(1)+'Panel';if(byId(id))byId(id).className='account-panel'+(panels[i]===name?' active':'');}if(name==='orders')renderAccountOrders();if(name==='favorites')renderAccountFavorites();if(name==='payments')loadPreferredPayment();}
-function toggleAccountOwner(){if(ownerMode){ownerMode=false;renderAccountOrders();return;}var pin=prompt('Digite a senha do lojista:');if(pin==='LIOR2026'){ownerMode=true;renderAccountOrders();}else if(pin!==null)alert('Senha incorreta.');}
-function paintAccountStars(){var bs=byId('accountStarPicker').querySelectorAll('button');for(var i=0;i<bs.length;i++)bs[i].className=parseInt(bs[i].getAttribute('data-account-star'),10)<=accountReviewStars?'active':'';}
-function openAccountReview(orderIndex,itemIndex){var o=orders[orderIndex],it=o&&o.items[itemIndex],prod=it&&findProduct(it.id);if(!o||!it||!prod||o.status!=='delivered'||it.reviewed)return;accountReviewTarget={orderIndex:orderIndex,itemIndex:itemIndex,productId:prod.id};accountReviewStars=5;paintAccountStars();byId('accountReviewProduct').innerHTML=prod.name;byId('accountReviewText').value='';byId('accountReviewMessage').innerHTML='';byId('accountReviewModal').className='account-modal review-account-modal show';}
-function closeAccountReview(){byId('accountReviewModal').className='account-modal review-account-modal';accountReviewTarget=null;}
-function submitAccountReview(){if(!accountReviewTarget)return;var text=byId('accountReviewText').value.trim();if(!text){byId('accountReviewMessage').innerHTML='Escreva um comentário antes de publicar.';return;}var account=getAccountData();var name=account.nickname||account.name||'Cliente LIOR';var arr=reviewsByProduct[accountReviewTarget.productId]||[];arr.push({id:'r'+Date.now(),name:name,text:text,stars:accountReviewStars,createdAt:Date.now(),reply:'',verified:true});reviewsByProduct[accountReviewTarget.productId]=arr;orders[accountReviewTarget.orderIndex].items[accountReviewTarget.itemIndex].reviewed=true;saveReviews();saveOrders();closeAccountReview();renderAccountOrders();if(current&&current.id===accountReviewTarget)renderReviews();}
-var zoomScale=1;
-function setZoomScale(value){zoomScale=Math.max(1,Math.min(4,value));byId('zoomImage').style.setProperty('--zoom-scale',zoomScale);byId('zoomLevel').innerHTML=Math.round(zoomScale*100)+'%';byId('zoomImage').style.cursor=zoomScale>1?'zoom-out':'zoom-in';}
-function openZoom(){if(!current)return;var src=current.images[galleryIndex];byId('zoomImage').src=src;byId('zoomImage').alt=current.name+' — foto ampliada';byId('zoomTitle').innerHTML=current.name+' · '+(galleryIndex===0?'Frente':galleryIndex===1?'Verso':'Detalhe');setZoomScale(1);byId('zoomStage').scrollTop=0;byId('zoomStage').scrollLeft=0;byId('zoomViewer').className='zoom-viewer show';document.body.style.overflow='hidden';}
-function closeZoom(){byId('zoomViewer').className='zoom-viewer';setZoomScale(1);document.body.style.overflow='';}
-document.addEventListener('click',function(e){var el=e.target;while(el&&el!==document){if(el.getAttribute&&el.getAttribute('data-view')){var v=el.getAttribute('data-view');if(v==='categories'){showView('categories');applyCategoryViewFilter('all');}else if(v==='home')showView('home');else if(v==='about')showView('about');else if(v==='contact')showView('contact');return;}if(el.getAttribute&&el.getAttribute('data-category-view-filter')){applyCategoryViewFilter(el.getAttribute('data-category-view-filter'));return;}if(el.getAttribute&&el.getAttribute('data-shirt-line')){currentLine=(currentLine===el.getAttribute('data-shirt-line')?'all':el.getAttribute('data-shirt-line'));renderShirtLines('camisetas');renderProducts();return;}if(el.getAttribute&&el.getAttribute('data-cat')){openCategory(el.getAttribute('data-cat'));return;}if(el.getAttribute&&el.getAttribute('data-favorite')){toggleFavorite(el.getAttribute('data-favorite'));return;}if(el.getAttribute&&el.getAttribute('data-product')){openProduct(el.getAttribute('data-product'));return;}if(el.getAttribute&&el.getAttribute('data-size')){selectedSize=el.getAttribute('data-size');var bs=byId('sizeOptions').getElementsByTagName('button');for(var i=0;i<bs.length;i++)bs[i].className='size-btn'+(bs[i].getAttribute('data-size')===selectedSize?' active':'');return;}if(el.getAttribute&&el.getAttribute('data-gallery-index')!==null){updateGallery(parseInt(el.getAttribute('data-gallery-index'),10)||0);return;}if(el.getAttribute&&el.getAttribute('data-img')){byId('modalImage').src=el.getAttribute('data-img');return;}if(el.getAttribute&&el.getAttribute('data-cart-minus')!==null){var mi=parseInt(el.getAttribute('data-cart-minus'),10);if(cart[mi]){if(cart[mi].qty>1)cart[mi].qty--;else cart.splice(mi,1);saveCart();renderCart();}return;}if(el.getAttribute&&el.getAttribute('data-cart-plus')!==null){var pi=parseInt(el.getAttribute('data-cart-plus'),10);if(cart[pi]&&cart[pi].qty<6){cart[pi].qty++;saveCart();renderCart();}return;}if(el.getAttribute&&el.getAttribute('data-remove')!==null){cart.splice(parseInt(el.getAttribute('data-remove'),10),1);saveCart();renderCart();return;}el=el.parentNode;}});
-byId('galleryPrev').onclick=function(){updateGallery(galleryIndex-1);};
-byId('galleryNext').onclick=function(){updateGallery(galleryIndex+1);};
-byId('galleryViewport').addEventListener('touchstart',function(e){if(e.touches&&e.touches[0])touchStartX=e.touches[0].clientX;},{passive:true});
-byId('galleryViewport').addEventListener('touchend',function(e){if(!current||current.images.length<2||!e.changedTouches||!e.changedTouches[0])return;var dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>45)updateGallery(galleryIndex+(dx<0?1:-1));},{passive:true});
-byId('galleryViewport').addEventListener('keydown',function(e){if(e.key==='ArrowLeft')updateGallery(galleryIndex-1);if(e.key==='ArrowRight')updateGallery(galleryIndex+1);});
-byId('galleryZoomButton').onclick=openZoom;byId('modalImage').onclick=openZoom;byId('zoomClose').onclick=closeZoom;byId('zoomIn').onclick=function(){setZoomScale(zoomScale+.5);};byId('zoomOut').onclick=function(){setZoomScale(zoomScale-.5);};byId('zoomReset').onclick=function(){setZoomScale(1);};byId('zoomImage').ondblclick=function(){setZoomScale(zoomScale===1?2:1);};byId('zoomStage').addEventListener('wheel',function(e){if(byId('zoomViewer').className.indexOf('show')===-1)return;e.preventDefault();setZoomScale(zoomScale+(e.deltaY<0?.25:-.25));},{passive:false});byId('zoomViewer').addEventListener('click',function(e){if(e.target===byId('zoomViewer')||e.target===byId('zoomStage'))closeZoom();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&byId('zoomViewer').className.indexOf('show')!==-1){closeZoom();return;}if(byId('zoomViewer').className.indexOf('show')!==-1){if(e.key==='+')setZoomScale(zoomScale+.5);if(e.key==='-')setZoomScale(zoomScale-.5);}});
-byId('menuButton').onclick=function(){byId('navMenu').className=byId('navMenu').className==='show'?'':'show';};byId('searchButton').onclick=function(){openUtility('searchDrawer');renderGlobalSearch();setTimeout(function(){byId('globalSearchInput').focus();},100);};byId('favoritesButton').onclick=function(){renderFavorites();openUtility('favoritesDrawer');};byId('cartButton').onclick=function(){openUtility('cartDrawer');};byId('accountButton').onclick=function(){refreshAccountAuth();openUtility('accountModal');};byId('closeCart').onclick=closeAll;byId('closeModal').onclick=closeAll;byId('overlay').onclick=closeAll;var closeUtility=document.querySelectorAll('[data-close-utility]');for(var cu=0;cu<closeUtility.length;cu++)closeUtility[cu].onclick=closeAll;byId('searchInput').oninput=renderProducts;byId('globalSearchInput').oninput=renderGlobalSearch;byId('categoryFilter').onchange=function(){currentCategory=this.value;var c=null;for(var i=0;i<cats.length;i++)if(cats[i].id===this.value)c=cats[i];byId('productTitle').innerHTML=c?c.name:'Todos os produtos';currentLine='all';renderShirtLines(this.value);renderProducts();};byId('qtyMinus').onclick=function(){if(qty>1)qty--;byId('qtyInput').value=qty;};byId('qtyPlus').onclick=function(){if(qty<6)qty++;byId('qtyInput').value=qty;};byId('addToCart').onclick=addCart;byId('modalFavoriteButton').onclick=function(){if(current)toggleFavorite(current.id);};byId('saveAccount').onclick=saveAccount;byId('saveAddress').onclick=saveAddress;byId('checkoutButton').onclick=checkout;
-
-byId('applyCoupon').onclick=function(){var c=byId('cartCoupon').value.trim().toUpperCase();var subtotal=0;for(var i=0;i<cart.length;i++){var p=findProduct(cart[i].id);if(p)subtotal+=p.price*cart[i].qty;}if(c==='LIOR10'){cartCoupon=c;cartDiscount=subtotal*.10;byId('couponMessage').innerHTML='Cupom aplicado: 10% de desconto.';}else if(!c){cartCoupon='';cartDiscount=0;byId('couponMessage').innerHTML='Cupom removido.';}else{cartCoupon='';cartDiscount=0;byId('couponMessage').innerHTML='Cupom inválido.';}renderCart();};
-byId('accountCep').oninput=function(){var v=this.value.replace(/\D/g,'').slice(0,8);this.value=v.length>5?v.slice(0,5)+'-'+v.slice(5):v;};
-byId('shippingCep').oninput=function(){var v=this.value.replace(/\D/g,'').slice(0,8);this.value=v.length>5?v.slice(0,5)+'-'+v.slice(5):v;};
-function shippingEstimate(address){
-  var uf=(address.uf||'').toUpperCase();
-  var city=(address.localidade||'').toLowerCase();
-  var pac={price:24.90,min:5,max:9};
-  var sedex={price:39.90,min:2,max:5};
-  if(uf==='SC'){
-    pac={price:city==='itajaí'?9.90:14.90,min:city==='itajaí'?1:2,max:city==='itajaí'?2:4};
-    sedex={price:city==='itajaí'?14.90:22.90,min:1,max:2};
-  }else if(['PR','RS'].indexOf(uf)!==-1){
-    pac={price:18.90,min:3,max:6}; sedex={price:29.90,min:1,max:3};
-  }else if(['SP','RJ','MG','ES'].indexOf(uf)!==-1){
-    pac={price:22.90,min:4,max:8}; sedex={price:36.90,min:2,max:4};
-  }else if(['DF','GO','MS','MT'].indexOf(uf)!==-1){
-    pac={price:28.90,min:6,max:10}; sedex={price:46.90,min:3,max:6};
-  }else if(['BA','SE','AL','PE','PB','RN','CE','PI','MA'].indexOf(uf)!==-1){
-    pac={price:34.90,min:7,max:13}; sedex={price:59.90,min:4,max:8};
-  }else if(['TO','PA','AP','AM','RR','RO','AC'].indexOf(uf)!==-1){
-    pac={price:42.90,min:9,max:17}; sedex={price:74.90,min:5,max:11};
+  function openDrawer(id) {
+    closeDrawers();
+    byId('overlay').className = 'overlay show';
+    byId(id).className += ' show';
   }
-  return {pac:pac,sedex:sedex};
-}
-function chooseShipping(type,address,quote){
-  var item=type==='sedex'?quote.sedex:quote.pac;
-  selectedShipping={type:type,label:type==='sedex'?'SEDEX':'PAC (Envio normal)',price:item.price,min:item.min,max:item.max,destination:(address.localidade||'Destino')+' - '+(address.uf||''),cep:(address.cep||byId('shippingCep').value)};
-  var opts=document.querySelectorAll('[data-shipping-type]');for(var i=0;i<opts.length;i++)opts[i].className='shipping-option'+(opts[i].getAttribute('data-shipping-type')===type?' selected':'');
-  renderCart();
-}
-function renderShipping(address){
-  var out=byId('shippingResult'),quote=shippingEstimate(address);
-  var destination=(address.localidade||'Destino')+' - '+(address.uf||'');
-  out.className='shipping-success shipping-options';
-  out.innerHTML='<span class="shipping-destination">De Itajaí - SC para <strong>'+destination+'</strong></span>'+ 
-    '<button type="button" class="shipping-option" data-shipping-type="pac"><span><b>PAC · Envio normal</b><small>'+quote.pac.min+' a '+quote.pac.max+' dias úteis</small></span><strong>'+money(quote.pac.price)+'</strong></button>'+ 
-    '<button type="button" class="shipping-option" data-shipping-type="sedex"><span><b>SEDEX · Envio expresso</b><small>'+quote.sedex.min+' a '+quote.sedex.max+' dias úteis</small></span><strong>'+money(quote.sedex.price)+'</strong></button>'+ 
-    '<em>Selecione uma opção. Valores são estimativas por região e podem variar no fechamento do pedido.</em>';
-  var opts=out.querySelectorAll('[data-shipping-type]');for(var i=0;i<opts.length;i++)opts[i].onclick=function(){chooseShipping(this.getAttribute('data-shipping-type'),address,quote);};
-}
-function lookupCepJSONP(cep,onSuccess,onError){
-  var callback='liorCepCallback_'+Date.now();
-  var script=document.createElement('script');
-  var done=false;
-  var timer=setTimeout(function(){finishError();},10000);
-  function cleanup(){clearTimeout(timer);if(script.parentNode)script.parentNode.removeChild(script);try{delete window[callback];}catch(e){window[callback]=undefined;}}
-  function finishError(){if(done)return;done=true;cleanup();onError();}
-  window[callback]=function(data){if(done)return;done=true;cleanup();if(!data||data.erro)onError();else onSuccess(data);};
-  script.onerror=finishError;
-  script.src='https://viacep.com.br/ws/'+cep+'/json/?callback='+callback;
-  document.head.appendChild(script);
-}
-function lookupCep(cep,onSuccess,onError){
-  if(window.fetch){
-    fetch('https://viacep.com.br/ws/'+cep+'/json/').then(function(r){if(!r.ok)throw new Error('Falha');return r.json();}).then(function(data){if(!data||data.erro)throw new Error('CEP');onSuccess(data);}).catch(function(){lookupCepJSONP(cep,onSuccess,onError);});
-  }else{lookupCepJSONP(cep,onSuccess,onError);}
-}
-byId('calculateShipping').onclick=function(){
-  var cep=byId('shippingCep').value.replace(/\D/g,''),out=byId('shippingResult'),btn=this;
-  if(cep.length!==8){out.innerHTML='Digite um CEP válido com 8 números.';out.className='shipping-error';return;}
-  selectedShipping=null;renderCart();btn.disabled=true;btn.innerHTML='Calculando...';out.className='';out.innerHTML='Localizando cidade e estado...';
-  lookupCep(cep,function(address){renderShipping(address);btn.disabled=false;btn.innerHTML='Calcular';},function(){out.className='shipping-error';out.innerHTML='CEP não encontrado ou serviço indisponível. Confira os 8 números e tente novamente.';btn.disabled=false;btn.innerHTML='Calcular';});
-};
-byId('reviewsJump').onclick=function(){var section=byId('reviewsSection');var closed=section.className.indexOf('is-collapsed')!==-1;if(closed){section.className='reviews-section';section.setAttribute('aria-hidden','false');this.innerHTML='Fechar avaliações';}else{section.className='reviews-section is-collapsed';section.setAttribute('aria-hidden','true');this.innerHTML='Ver avaliações';}};
-byId('reviewsSort').onchange=renderReviews;
-byId('accountOwnerAccess').onclick=toggleAccountOwner;
-byId('closeAccountReview').onclick=closeAccountReview;
-byId('accountReviewSubmit').onclick=submitAccountReview;
-byId('accountStarPicker').onclick=function(e){var b=e.target.closest?e.target.closest('[data-account-star]'):null;if(!b)return;accountReviewStars=parseInt(b.getAttribute('data-account-star'),10)||5;paintAccountStars();};
-document.addEventListener('click',function(e){var tab=e.target.closest?e.target.closest('[data-account-tab]'):null;if(tab){switchAccountTab(tab.getAttribute('data-account-tab'));return;}var review=e.target.closest?e.target.closest('[data-review-order]'):null;if(review){openAccountReview(parseInt(review.getAttribute('data-review-order'),10),parseInt(review.getAttribute('data-review-item'),10));return;}var advance=e.target.closest?e.target.closest('[data-advance-order]'):null;if(advance&&ownerMode){var ai=parseInt(advance.getAttribute('data-advance-order'),10);if(orders[ai]){var si=stepIndex(orders[ai].status);orders[ai].status=orderSteps[Math.min(si+1,orderSteps.length-1)];saveOrders();renderAccountOrders();}return;}var edit=e.target.closest?e.target.closest('[data-edit-order]'):null;if(edit&&ownerMode){var ei=parseInt(edit.getAttribute('data-edit-order'),10),o=orders[ei];if(o){var pm=prompt('Forma de pagamento:',o.paymentMethod||'Pix');if(pm!==null)o.paymentMethod=pm;var ds=prompt('Valor do desconto em reais:',String(o.discount||0).replace('.',','));if(ds!==null){var d=parseFloat(ds.replace(',','.'))||0;o.discount=Math.max(0,d);o.total=(o.subtotal||0)-o.discount+((o.shipping&&o.shipping.price)||0);}saveOrders();renderAccountOrders();}return;}var delivered=e.target.closest?e.target.closest('[data-mark-delivered]'):null;if(delivered&&ownerMode){var oi=parseInt(delivered.getAttribute('data-mark-delivered'),10);if(orders[oi]){orders[oi].status='delivered';saveOrders();renderAccountOrders();}return;}});
-
-var secureAuthState={user:null,csrfToken:'',loading:false};
-function getAuthUser(){return secureAuthState.user;}
-function getAuthAccount(){return null;}
-function showAuthView(view){var login=byId('loginForm'),reg=byId('registerForm'),forgot=byId('forgotForm');login.classList.add('is-hidden');reg.classList.add('is-hidden');forgot.classList.add('is-hidden');if(view==='register'){reg.classList.remove('is-hidden');byId('authTitle').textContent='Crie sua conta LIOR';byId('authSubtitle').textContent='Cadastre-se para acompanhar pedidos e salvar seus dados.';}else if(view==='forgot'){forgot.classList.remove('is-hidden');byId('authTitle').textContent='Recuperação de acesso';byId('authSubtitle').textContent='Proteja sua conta e recupere o acesso com segurança.';}else{login.classList.remove('is-hidden');byId('authTitle').textContent='Entrar na sua conta';byId('authSubtitle').textContent='Acompanhe pedidos, endereços, favoritos e avaliações.';}}
-function authMessage(id,message,isError){var node=byId(id);if(!node)return;node.className='auth-message'+(isError?' error':'');node.textContent=message||'';}
-async function authApi(path,options){options=options||{};var headers=Object.assign({'Accept':'application/json'},options.headers||{});if(options.body&&typeof options.body!=='string'){headers['Content-Type']='application/json';options.body=JSON.stringify(options.body);}if(secureAuthState.csrfToken&&options.method&&options.method!=='GET')headers['X-CSRF-Token']=secureAuthState.csrfToken;var response=await fetch(path,Object.assign({credentials:'same-origin',headers:headers},options));var data=await response.json().catch(function(){return{};});if(!response.ok)throw new Error(data.error||'Não foi possível concluir a operação.');return data;}
-function accountProfileFromResponse(user){return user&&user.profile?user.profile:{};}
-function accountAddressFromResponse(user){return user&&user.address?user.address:{};}
-function syncAccountForCheckout(user){var profile=accountProfileFromResponse(user),address=accountAddressFromResponse(user);var local={name:profile.name||'',nickname:profile.nickname||'',cpf:profile.cpf||'',email:profile.email||user.email||'',phone:profile.phone||'',birthDate:profile.birthDate||'',contactType:profile.contactType||'email',contact:profile.contact||profile.email||user.email||'',maritalStatus:profile.maritalStatus||'',gender:profile.gender||'',recipient:address.recipient||profile.name||'',cep:address.cep||'',street:address.street||'',number:address.number||'',complement:address.complement||'',reference:address.reference||'',district:address.district||'',city:address.city||''};try{localStorage.setItem('lior_account',JSON.stringify(local));}catch(e){}return local;}
-function fillSecureAccount(user){var profile=accountProfileFromResponse(user),address=accountAddressFromResponse(user);byId('accountName').value=profile.name||'';byId('accountNickname').value=profile.nickname||'';byId('accountCpf').value=formatCpf(profile.cpf||'');byId('accountContactType').value=profile.contactType==='phone'?'phone':'email';byId('accountContact').value=profile.contact||profile.email||user.email||'';byId('accountBirthDate').value=profile.birthDate||'';byId('accountMaritalStatus').value=profile.maritalStatus||'';var genders=document.querySelectorAll('input[name="accountGender"]');for(var i=0;i<genders.length;i++)genders[i].checked=genders[i].value===(profile.gender||'');byId('accountCep').value=formatAccountCep(address.cep||'');byId('accountRecipient').value=address.recipient||profile.name||'';byId('accountStreet').value=address.street||'';byId('accountNumber').value=address.number||'';byId('accountComplement').value=address.complement||'';byId('accountReference').value=address.reference||'';byId('accountDistrict').value=address.district||'';byId('accountCity').value=address.city||'';syncContactPlaceholder();syncAccountForCheckout(user);var nickname=profile.nickname||profile.name||'Cliente LIOR';byId('customerGreeting').textContent=nickname;byId('customerAvatar').textContent=nickname.charAt(0).toUpperCase();renderAccountOrders();renderAccountFavorites();loadPreferredPayment();switchAccountTab('orders');}
-function paintAccountState(authenticated){var auth=byId('accountAuthPanel'),privateArea=byId('accountPrivateArea'),sidebar=document.querySelector('.customer-account-sidebar');auth.classList.toggle('is-hidden',authenticated);privateArea.classList.toggle('is-hidden',!authenticated);sidebar.classList.toggle('is-locked',!authenticated);if(!authenticated){byId('customerGreeting').textContent='Cliente LIOR';byId('customerAvatar').textContent='L';showAuthView('login');}}
-async function refreshAccountAuth(){if(secureAuthState.loading)return;secureAuthState.loading=true;try{var data=await authApi('/api/auth/me');if(data.authenticated&&data.user){secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||'';paintAccountState(true);fillSecureAccount(data.user);authMessage('loginMessage','',false);}else{secureAuthState.user=null;secureAuthState.csrfToken='';paintAccountState(false);}}catch(error){secureAuthState.user=null;secureAuthState.csrfToken='';paintAccountState(false);authMessage('loginMessage','Para acessar sua conta, feche este arquivo e dê dois cliques em ABRIR_LOJA.bat. A loja será aberta automaticamente pelo servidor seguro.',true);}finally{secureAuthState.loading=false;}}
-function formatCpf(value){var d=(value||'').replace(/\D/g,'').slice(0,11);if(d.length>9)return d.slice(0,3)+'.'+d.slice(3,6)+'.'+d.slice(6,9)+'-'+d.slice(9);if(d.length>6)return d.slice(0,3)+'.'+d.slice(3,6)+'.'+d.slice(6);if(d.length>3)return d.slice(0,3)+'.'+d.slice(3);return d;}
-function isValidCpf(value){var cpf=(value||'').replace(/\D/g,'');if(cpf.length!==11||/^(\d)\1{10}$/.test(cpf))return false;var sum=0,i;for(i=0;i<9;i++)sum+=Number(cpf.charAt(i))*(10-i);var digit=(sum*10)%11;if(digit===10)digit=0;if(digit!==Number(cpf.charAt(9)))return false;sum=0;for(i=0;i<10;i++)sum+=Number(cpf.charAt(i))*(11-i);digit=(sum*10)%11;if(digit===10)digit=0;return digit===Number(cpf.charAt(10));}
-function formatPhone(value){var d=(value||'').replace(/\D/g,'').slice(0,11);if(d.length>10)return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7);if(d.length>6)return '('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6);if(d.length>2)return '('+d.slice(0,2)+') '+d.slice(2);return d;}
-function formatAccountCep(value){var digitsValue=(value||'').replace(/\D/g,'').slice(0,8);return digitsValue.length>5?digitsValue.slice(0,5)+'-'+digitsValue.slice(5):digitsValue;}
-function syncContactPlaceholder(){var type=byId('accountContactType').value,field=byId('accountContact');if(!field)return;field.placeholder=type==='phone'?'(47) 99999-9999':'seuemail@gmail.com';field.setAttribute('inputmode',type==='phone'?'tel':'email');}
-function setCpfValidationMessage(message,state){var node=byId('cpfValidationMessage');if(!node)return;node.className='cpf-validation-message'+(state?' '+state:'');node.textContent=message||'';}
-function verifyAccountCpf(){var name=byId('accountName').value.trim(),cpf=byId('accountCpf').value.trim();if(name.split(/\s+/).filter(Boolean).length<2){setCpfValidationMessage('Informe o nome completo.','error');return;}if(!isValidCpf(cpf)){setCpfValidationMessage('CPF inválido. Confira os números.','error');return;}setCpfValidationMessage('CPF válido pelos dígitos.','success');}
-function fillAccountAddressByCep(){var input=byId('accountCep'),msg=byId('addressMessage');if(!input)return;var cep=input.value.replace(/\D/g,'');input.value=formatAccountCep(input.value);if(cep.length!==8){if(cep.length)msg.textContent='Digite os 8 números do CEP.';return;}msg.className='';msg.textContent='Buscando endereço...';lookupCep(cep,function(address){byId('accountCity').value=[address.localidade,address.uf].filter(Boolean).join(' - ');byId('accountDistrict').value=address.bairro||'';if(!byId('accountStreet').value.trim())byId('accountStreet').value=address.logradouro||'';msg.textContent='Endereço preenchido. Complete o número.';},function(){msg.className='auth-message error';msg.textContent='CEP não encontrado.';});}
-async function saveSecureProfile(){var button=byId('saveAccount'),message=byId('accountMessage'),gender=document.querySelector('input[name="accountGender"]:checked');button.disabled=true;message.textContent='Salvando...';try{var data=await authApi('/api/account/profile',{method:'POST',body:{name:byId('accountName').value,nickname:byId('accountNickname').value,cpf:byId('accountCpf').value,email:secureAuthState.user?secureAuthState.user.email:'',phone:byId('accountContactType').value==='phone'?byId('accountContact').value:'',contactType:byId('accountContactType').value,contact:byId('accountContact').value,birthDate:byId('accountBirthDate').value,maritalStatus:byId('accountMaritalStatus').value,gender:gender?gender.value:''}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||secureAuthState.csrfToken;fillSecureAccount(data.user);message.textContent='Perfil salvo com segurança.';}catch(error){message.textContent=error.message;}finally{button.disabled=false;}}
-async function saveSecureAddress(){var button=byId('saveAddress'),message=byId('addressMessage');button.disabled=true;message.textContent='Salvando...';try{var data=await authApi('/api/account/address',{method:'POST',body:{cep:byId('accountCep').value,recipient:byId('accountRecipient').value,street:byId('accountStreet').value,number:byId('accountNumber').value,complement:byId('accountComplement').value,reference:byId('accountReference').value,district:byId('accountDistrict').value,city:byId('accountCity').value}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||secureAuthState.csrfToken;fillSecureAccount(data.user);message.textContent='Endereço salvo com segurança.';}catch(error){message.textContent=error.message;}finally{button.disabled=false;}}
-function loadPreferredPayment(){var value=(accountProfileFromResponse(secureAuthState.user).preferredPayment)||localStorage.getItem('lior_preferred_payment')||'Pix';var radios=document.querySelectorAll('input[name="preferredPayment"]');for(var i=0;i<radios.length;i++)radios[i].checked=radios[i].value===value;}
-async function savePreferredPayment(){var selected=document.querySelector('input[name="preferredPayment"]:checked'),msg=byId('paymentMessage');if(!selected){msg.textContent='Escolha uma forma de pagamento.';return;}try{var data=await authApi('/api/account/profile',{method:'POST',body:{preferredPayment:selected.value}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||secureAuthState.csrfToken;localStorage.setItem('lior_preferred_payment',selected.value);byId('cartPaymentMethod').value=selected.value;msg.textContent='Preferência salva.';}catch(error){msg.textContent=error.message;}}
-async function completeGoogleLoginSecure(response){var msg=byId('googleLoginMessage');try{var data=await authApi('/api/auth/google',{method:'POST',body:{credential:response.credential}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||'';msg.textContent='';paintAccountState(true);fillSecureAccount(data.user);}catch(error){authMessage('googleLoginMessage',error.message,true);}}
-async function loadGoogleLogin(){var msg=byId('googleLoginMessage');msg.textContent='Carregando Google...';try{var config=await authApi('/api/config');if(!config.googleClientId)throw new Error('O login Google ainda precisa do Client ID da loja. O acesso por e-mail já está disponível.');function initialize(){window.google.accounts.id.initialize({client_id:config.googleClientId,callback:completeGoogleLoginSecure,auto_select:false,cancel_on_tap_outside:true,use_fedcm_for_prompt:true});window.google.accounts.id.prompt(function(notification){if(notification.isNotDisplayed&&notification.isNotDisplayed())authMessage('googleLoginMessage','O Google não abriu neste domínio. Confira a origem HTTPS autorizada no Google Cloud.',true);});}if(window.google&&google.accounts&&google.accounts.id){initialize();return;}var script=document.createElement('script');script.src='https://accounts.google.com/gsi/client';script.async=true;script.defer=true;script.onload=initialize;script.onerror=function(){authMessage('googleLoginMessage','Não foi possível carregar o Google.',true);};document.head.appendChild(script);}catch(error){authMessage('googleLoginMessage',error.message,true);}}
-byId('openRegister').onclick=function(){showAuthView('register');};byId('openLogin').onclick=function(){showAuthView('login');};byId('openForgot').onclick=function(){showAuthView('forgot');byId('forgotEmail').value=byId('loginEmail').value||'';};byId('forgotBackLogin').onclick=function(){showAuthView('login');};byId('loginGoogle').onclick=loadGoogleLogin;
-byId('loginForm').onsubmit=async function(e){e.preventDefault();authMessage('loginMessage','Entrando...',false);try{var data=await authApi('/api/auth/login',{method:'POST',body:{email:byId('loginEmail').value,password:byId('loginPassword').value}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||'';authMessage('loginMessage','',false);paintAccountState(true);fillSecureAccount(data.user);this.reset();}catch(error){authMessage('loginMessage',error.message,true);}};
-byId('registerForm').onsubmit=async function(e){e.preventDefault();var pass=byId('registerPassword').value,confirm=byId('registerPasswordConfirm').value;if(pass!==confirm){authMessage('registerMessage','As senhas não conferem.',true);return;}authMessage('registerMessage','Criando conta...',false);try{var data=await authApi('/api/auth/register',{method:'POST',body:{name:byId('registerName').value,nickname:byId('registerNickname').value,cpf:byId('registerCpf').value,email:byId('registerEmail').value,phone:byId('registerPhone').value,birthDate:byId('registerBirthDate').value,password:pass}});secureAuthState.user=data.user;secureAuthState.csrfToken=data.csrfToken||'';paintAccountState(true);fillSecureAccount(data.user);this.reset();authMessage('registerMessage','',false);}catch(error){authMessage('registerMessage',error.message,true);}};
-byId('forgotForm').onsubmit=function(e){e.preventDefault();authMessage('forgotMessage','Por segurança, as instruções serão enviadas quando o serviço de e-mail da loja estiver conectado.',false);};
-byId('customerLogout').onclick=async function(){try{await authApi('/api/auth/logout',{method:'POST',body:{}});}catch(e){}secureAuthState.user=null;secureAuthState.csrfToken='';paintAccountState(false);};
-byId('changePasswordForm').onsubmit=async function(e){e.preventDefault();var msg=byId('passwordChangeMessage'),next=byId('newPassword').value,confirm=byId('confirmNewPassword').value;if(next!==confirm){authMessage('passwordChangeMessage','A confirmação não confere.',true);return;}try{await authApi('/api/auth/change-password',{method:'POST',body:{currentPassword:byId('currentPassword').value,newPassword:next}});this.reset();authMessage('passwordChangeMessage','Senha alterada com segurança.',false);}catch(error){authMessage('passwordChangeMessage',error.message,true);}};
-byId('saveAccount').onclick=saveSecureProfile;byId('saveAddress').onclick=saveSecureAddress;byId('savePaymentMethod').onclick=savePreferredPayment;byId('verifyAccountCpf').onclick=verifyAccountCpf;
-if(byId('accountCpf'))byId('accountCpf').addEventListener('input',function(){this.value=formatCpf(this.value);setCpfValidationMessage('','');});if(byId('registerCpf'))byId('registerCpf').addEventListener('input',function(){this.value=formatCpf(this.value);});if(byId('registerPhone'))byId('registerPhone').addEventListener('input',function(){this.value=formatPhone(this.value);});if(byId('accountContactType'))byId('accountContactType').addEventListener('change',function(){var field=byId('accountContact');syncContactPlaceholder();if(this.value==='phone')field.value=formatPhone(field.value.indexOf('@')>=0?'':field.value);else if(field.value&&field.value.indexOf('@')<0)field.value='';});if(byId('accountContact'))byId('accountContact').addEventListener('input',function(){if(byId('accountContactType').value==='phone')this.value=formatPhone(this.value);});if(byId('accountCep')){byId('accountCep').addEventListener('input',function(){this.value=formatAccountCep(this.value);if(this.value.replace(/\D/g,'').length===8)fillAccountAddressByCep();});byId('accountCep').addEventListener('blur',fillAccountAddressByCep);}
-document.addEventListener('click',function(e){var button=e.target.closest?e.target.closest('[data-toggle-password]'):null;if(!button)return;var input=byId(button.getAttribute('data-toggle-password'));if(!input)return;input.type=input.type==='password'?'text':'password';button.textContent=input.type==='password'?'Mostrar':'Ocultar';});
-
-loadReviews();loadOrders();renderCategories();loadCart();loadFavorites();renderCart();renderFavorites();showView('home');
-})();
-
+  function categoryFilter(filter) {
+    var cards = document.querySelectorAll('[data-category-card]');
+    cards.forEach(function (card) {
+      var hidden = filter !== 'all' && card.getAttribute('data-category-card') !== filter;
+      card.classList.toggle('category-hidden', hidden);
+    });
+    document.querySelectorAll('[data-category-view-filter]').forEach(function (button) {
+      button.classList.toggle('active', button.getAttribute('data-category-view-filter') === filter);
+    });
+  }
+  function shippingEstimate(address) {
+    var state = String(address.uf || '').toUpperCase();
+    var local = String(address.localidade || '').toLowerCase();
+    var pac = {price:24.90, min:5, max:9};
+    var sedex = {price:39.90, min:2, max:5};
+    if (state === 'SC') {
+      pac = {price:local === 'itajaí' ? 9.90 : 14.90, min:local === 'itajaí' ? 1 : 2, max:local === 'itajaí' ? 2 : 4};
+      sedex = {price:local === 'itajaí' ? 14.90 : 22.90, min:1, max:2};
+    } else if (['PR', 'RS'].indexOf(state) !== -1) {
+      pac = {price:18.90, min:3, max:6}; sedex = {price:29.90, min:1, max:3};
+    } else if (['SP', 'RJ', 'MG', 'ES'].indexOf(state) !== -1) {
+      pac = {price:22.90, min:4, max:8}; sedex = {price:36.90, min:2, max:4};
+    } else if (['DF', 'GO', 'MS', 'MT'].indexOf(state) !== -1) {
+      pac = {price:28.90, min:6, max:10}; sedex = {price:46.90, min:3, max:6};
+    } else if (['BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA'].indexOf(state) !== -1) {
+      pac = {price:34.90, min:7, max:13}; sedex = {price:59.90, min:4, max:8};
+    } else if (['TO', 'PA', 'AP', 'AM', 'RR', 'RO', 'AC'].indexOf(state) !== -1) {
+      pac = {price:42.90, min:9, max:17}; sedex = {price:74.90, min:5, max:11};
+    }
+    return {pac: pac, sedex: sedex};
+  }
+  function renderShipping(address) {
+    var quote = shippingEstimate(address);
+    var output = byId('shippingResult');
+    output.className = 'shipping-success shipping-options';
+    output.innerHTML = '<span class="shipping-destination">De Itajaí - SC para <strong>' +
+      (address.localidade || 'Destino') + ' - ' + (address.uf || '') + '</strong></span>' +
+      ['pac', 'sedex'].map(function (type) {
+        var option = quote[type];
+        return '<button type="button" class="shipping-option" data-shipping-type="' + type +
+          '"><span><b>' + (type === 'pac' ? 'PAC · Envio normal' : 'SEDEX · Envio expresso') +
+          '</b><small>' + option.min + ' a ' + option.max + ' dias úteis</small></span><strong>' +
+          window.LIOR_CATALOG_UI.money(option.price) + '</strong></button>';
+      }).join('');
+    output.querySelectorAll('[data-shipping-type]').forEach(function (button) {
+      button.onclick = function () {
+        var type = button.getAttribute('data-shipping-type');
+        window.LIOR_CART.setShipping(Object.assign({type:type, label:type === 'pac' ? 'PAC (Envio normal)' : 'SEDEX'},
+          quote[type], {destination:(address.localidade || '') + ' - ' + (address.uf || ''), cep:address.cep}));
+      };
+    });
+  }
+  function bind() {
+    window.LIOR_APP = {showView: showView};
+    window.LIOR_CATALOG_UI.init();
+    window.LIOR_CART.init();
+    window.LIOR_ACCOUNT.init();
+    byId('menuButton').onclick = function () { byId('navMenu').classList.toggle('show'); };
+    byId('searchButton').onclick = function () { openDrawer('searchDrawer'); };
+    byId('favoritesButton').onclick = function () {
+      window.LIOR_CART.renderFavorites(); openDrawer('favoritesDrawer');
+    };
+    byId('cartButton').onclick = function () { openDrawer('cartDrawer'); };
+    byId('accountButton').onclick = function () {
+      window.LIOR_ACCOUNT.refresh(); openDrawer('accountModal');
+    };
+    byId('accountOwnerAccess').onclick = function () {
+      alert('A área do lojista está temporariamente indisponível. Nenhum PIN é aceito no navegador.');
+    };
+    byId('closeCart').onclick = closeDrawers;
+    byId('closeModal').onclick = closeDrawers;
+    byId('overlay').onclick = closeDrawers;
+    document.querySelectorAll('[data-close-utility]').forEach(function (button) {
+      button.onclick = closeDrawers;
+    });
+    byId('searchInput').oninput = window.LIOR_CATALOG_UI.renderProducts;
+    byId('globalSearchInput').oninput = function () {
+      var term = this.value.toLowerCase();
+      var result = window.LIOR_CATALOG_UI.products().filter(function (product) {
+        return product.name.toLowerCase().indexOf(term) !== -1;
+      });
+      byId('globalSearchResults').innerHTML = result.map(function (product) {
+        return '<button data-product="' + product.id + '">' + product.name + '</button>';
+      }).join('') || '<div class="empty">Nenhum produto encontrado.</div>';
+    };
+    byId('categoryFilter').onchange = function () {
+      window.LIOR_CATALOG_UI.setCategory(this.value);
+      showView('products');
+    };
+    byId('checkoutButton').onclick = window.LIOR_CHECKOUT.open;
+    byId('applyCoupon').onclick = function () {
+      var valid = window.LIOR_CART.applyCoupon(byId('cartCoupon').value);
+      var value = byId('cartCoupon').value.trim();
+      byId('couponMessage').textContent = valid ? 'Cupom aplicado: 10% de desconto.' :
+        (value ? 'Cupom inválido.' : 'Cupom removido.');
+    };
+    byId('calculateShipping').onclick = function () {
+      var input = byId('shippingCep');
+      var cep = input.value.replace(/\D/g, '');
+      if (cep.length !== 8) { byId('shippingResult').textContent = 'Digite um CEP válido com 8 números.'; return; }
+      window.LIOR_API.lookupCep(cep).then(renderShipping).catch(function () {
+        byId('shippingResult').textContent = 'CEP não encontrado ou serviço indisponível.';
+      });
+    };
+    document.addEventListener('click', function (event) {
+      var target = event.target.closest ? event.target.closest('[data-view],[data-cat],[data-product],[data-favorite],[data-cart-minus],[data-cart-plus],[data-remove],[data-category-view-filter],[data-shirt-line],[data-gallery-index]') : null;
+      if (!target) return;
+      if (target.dataset.view) {
+        if (target.dataset.view === 'categories') categoryFilter('all');
+        showView(target.dataset.view);
+        return;
+      }
+      if (target.dataset.categoryViewFilter) { categoryFilter(target.dataset.categoryViewFilter); return; }
+      if (target.dataset.cat) { window.LIOR_CATALOG_UI.openCategory(target.dataset.cat); return; }
+      if (target.dataset.shirtLine) { window.LIOR_CATALOG_UI.setLine(target.dataset.shirtLine); return; }
+      if (target.dataset.product) { window.LIOR_CATALOG_UI.showProduct(target.dataset.product); return; }
+      if (target.dataset.favorite) { window.LIOR_CART.toggleFavorite(target.dataset.favorite); return; }
+      if (target.dataset.cartMinus) { window.LIOR_CART.change(Number(target.dataset.cartMinus), -1); return; }
+      if (target.dataset.cartPlus) { window.LIOR_CART.change(Number(target.dataset.cartPlus), 1); return; }
+      if (target.dataset.remove) { window.LIOR_CART.remove(Number(target.dataset.remove)); return; }
+      if (target.dataset.galleryIndex) {
+        window.LIOR_CATALOG_UI.updateGallery(Number(target.dataset.galleryIndex)); return;
+      }
+    });
+    byId('qtyMinus').onclick = function () {
+      var input = byId('qtyInput'); input.value = Math.max(1, Number(input.value) - 1);
+    };
+    byId('qtyPlus').onclick = function () {
+      var input = byId('qtyInput'); input.value = Math.min(6, Number(input.value) + 1);
+    };
+    byId('addToCart').onclick = function () {
+      var product = window.LIOR_CATALOG_UI.current();
+      if (!product) return;
+      var size = document.querySelector('#sizeOptions .active');
+      window.LIOR_CART.add(product.id, size ? size.textContent : 'M', Number(byId('qtyInput').value) || 1);
+      closeDrawers(); openDrawer('cartDrawer');
+    };
+    byId('sizeOptions').onclick = function (event) {
+      var button = event.target.closest('[data-size]');
+      if (!button) return;
+      byId('sizeOptions').querySelectorAll('button').forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+    };
+    byId('galleryPrev').onclick = function () { window.LIOR_CATALOG_UI.updateGallery(-1); };
+    byId('galleryNext').onclick = function () { window.LIOR_CATALOG_UI.updateGallery(1); };
+    byId('galleryZoomButton').onclick = window.LIOR_CATALOG_UI.openZoom;
+    byId('modalImage').onclick = window.LIOR_CATALOG_UI.openZoom;
+    byId('zoomClose').onclick = window.LIOR_CATALOG_UI.closeZoom;
+    byId('zoomIn').onclick = function () {
+      window.LIOR_CATALOG_UI.setZoom(Number(byId('zoomLevel').textContent.replace('%', '')) / 100 + 0.5);
+    };
+    byId('zoomOut').onclick = function () {
+      window.LIOR_CATALOG_UI.setZoom(Number(byId('zoomLevel').textContent.replace('%', '')) / 100 - 0.5);
+    };
+    byId('zoomReset').onclick = function () { window.LIOR_CATALOG_UI.setZoom(1); };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+}());

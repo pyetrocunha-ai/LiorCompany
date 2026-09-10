@@ -17,6 +17,12 @@ O iniciador procura o Python no computador. Quando ele não está instalado, ten
 - **Todas** volta a mostrar as cinco categorias.
 - Conta, cadastro e login funcionam pelo servidor Python e banco SQLite.
 - Senhas usam PBKDF2; sessões usam cookie HttpOnly e proteção CSRF.
+- O servidor HTTP está em `server_python/app.py`; configuração, banco,
+  validação, autenticação, checkout e pagamentos são módulos separados.
+- No navegador, `app.js` apenas inicializa a loja; catálogo, sacola, conta,
+  checkout e API ficam em seus próprios módulos.
+- No Render, o SQLite usa o disco persistente `/var/data`; sem esse disco,
+  reinicializações podem apagar usuários, pedidos e pagamentos.
 
 ## Google e pagamentos reais
 
