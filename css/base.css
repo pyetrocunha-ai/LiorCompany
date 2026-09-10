@@ -477,6 +477,7 @@
   text-overflow: ellipsis;
 }
 .social-login:hover { border-color: var(--gold2); background: rgba(199,154,74,.08); }
+.social-login:disabled { cursor: default; opacity: .72; }
 .social-login b { display: inline-grid; place-items: center; margin-right: 8px; font-size: 18px; }
 
 .auth-divider {

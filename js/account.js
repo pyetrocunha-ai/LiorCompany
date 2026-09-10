@@ -264,7 +264,9 @@
           var googleButton = byId('googleLoginButton');
           googleButton.innerHTML = '';
           googleButton.classList.remove('is-hidden');
-          byId('loginGoogle').classList.add('is-hidden');
+          byId('loginGoogle').classList.remove('is-hidden');
+          byId('loginGoogle').textContent = 'Use o botao oficial do Google abaixo';
+          byId('loginGoogle').disabled = true;
           window.google.accounts.id.renderButton(googleButton, {theme:'outline', size:'large', text:'signin_with', shape:'rectangular', width:360});
         };
         if (window.google && window.google.accounts && window.google.accounts.id) start();
