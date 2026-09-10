@@ -6,7 +6,7 @@ services:
     runtime: python
     buildCommand: ""
     startCommand: python server_python/app.py
-    autoDeploy: false
+    autoDeploy: true
     disk:
       name: lior-company-data
       mountPath: /var/data
