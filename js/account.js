@@ -68,6 +68,7 @@
   function paint(authenticated) {
     byId('accountAuthPanel').classList.toggle('is-hidden', authenticated);
     byId('accountPrivateArea').classList.toggle('is-hidden', !authenticated);
+    byId('accountModal').classList.toggle('is-authenticated', authenticated);
     document.querySelector('.customer-account-sidebar').classList.toggle('is-locked', !authenticated);
   }
   function fill(user) {

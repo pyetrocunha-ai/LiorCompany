@@ -306,6 +306,9 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
+.customer-account-modal:not(.is-authenticated) .customer-account-shell { grid-template-columns: 1fr; }
+.customer-account-modal:not(.is-authenticated) .customer-account-sidebar { display: none; }
+
 .customer-account-modal .modal-close {
   position: fixed;
   top: 14px;
